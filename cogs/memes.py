@@ -2,10 +2,7 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 import random
-import reddit
-import praw
 import asyncio
-import random
 
 from PIL import Image
 from PIL import ImageFont
