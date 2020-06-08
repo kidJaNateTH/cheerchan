@@ -20,7 +20,7 @@ async def on_ready():
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
-    await client.change_presence(status=discord.Status.online, activity=discord.Game("c!help"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game("Fixing bugs"))
     client.load_extension('cogs.ping')
     client.load_extension('cogs.dice')
     client.load_extension('cogs.brainout')
@@ -38,6 +38,7 @@ async def on_ready():
     client.load_extension('cogs.newhelp')
     client.load_extension('cogs.memes')
     client.load_extension('cogs.music')
+    client.load_extension('cogs.translate')
 
 
 @client.command()
@@ -227,6 +228,36 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
+
+    #SENT DM MESSAGE#####################################
+    if message.author.id == client.user.id:
+        return
+    if message.author != message.author.bot:
+        if not message.guild:
+            print("DM works")
+            #if message.content == 'hi' or message.content == 'Hi' or message.content == 'Hoi' or message.content == 'hoi':
+            #    user = client.get_user(message.author.id)
+            #    return await user.send(f"Hi {message.author.name}")
+            embed = discord.Embed(
+                title = message.author.mention,
+                colour = discord.Colour.green()
+            )
+            embed.set_footer(icon_url=client.user.avatar_url,text=f"c!dm <@!{message.author.id}>")
+            embed.set_thumbnail(url=message.author.avatar_url)
+            embed.add_field(name=f"User mention: ",value=message.author.mention,inline=False)
+            embed.add_field(name=f"Username: ",value=message.author,inline=False)
+            embed.add_field(name=f"User ID: ",value=message.author.id,inline=False)
+            embed.add_field(name=f"Content: ",value=message.content,inline=False)
+            #CTTS
+            await client.get_guild(706700216455135316).get_channel(708537666538569812).send(embed=embed)
+            #OSUFG
+            #return await client.get_guild(690410179157557298).get_channel(715552977443749958).send(embed=embed)
+
+
+
+
+
+
     #give XP
     if message.author == client.user:
         return
@@ -247,7 +278,7 @@ async def on_message(message):
     if lvl_up(author_id):
         ctx = client.get_channel(message.channel.id)
         dm = client.get_user(message.author.id)
-        await dm.send(f"{message.author.mention} is now level {users[author_id]['level']}")
+        #await dm.send(f"{message.author.mention} is now level {users[author_id]['level']}")
         if users[author_id]['level'] == 5:
             await ctx.send(f"{message.author.mention}, You're unlocked tier 1 profile background!, type `c!profile`")
         if users[author_id]['level'] == 7:
@@ -261,9 +292,10 @@ async def on_message(message):
     ###############################
 
     #snipe
-    file = open("snipe.cheerchan","a")
+    file = open("snipe.cheerchan","a",encoding='utf-8')
     msg = message.author.name+": "+message.content+"\n"
     file.write(msg)
+        
     if message.content == 'c!snipe':
             if message.author.id == 546558917929598978 or message.author.id == 507827170261991464:
                 user = client.get_user(message.author.id)
@@ -287,28 +319,7 @@ async def on_message(message):
 
 
 
-    #SENT DM MESSAGE#####################################
-    if message.author.id == client.user.id:
-        return
-    if message.author != message.author.bot:
-        if not message.guild:
-            if message.content == 'hi' or message.content == 'Hi' or message.content == 'Hoi' or message.content == 'hoi':
-                user = client.get_user(message.author.id)
-                return await user.send(f"Hi {message.author.name}")
-            embed = discord.Embed(
-                title = message.author.mention,
-                colour = discord.Colour.green()
-            )
-            embed.set_footer(icon_url=client.user.avatar_url,text=f"c!se <@!{message.author.id}>")
-            embed.set_thumbnail(url=message.author.avatar_url)
-            embed.add_field(name=f"User mention: ",value=message.author.mention,inline=False)
-            embed.add_field(name=f"Username: ",value=message.author,inline=False)
-            embed.add_field(name=f"User ID: ",value=message.author.id,inline=False)
-            embed.add_field(name=f"Content: ",value=message.content,inline=False)
-            #CTTS
-            return await client.get_guild(706700216455135316).get_channel(708537666538569812).send(embed=embed)
-            #OSUFG
-            #return await client.get_guild(690410179157557298).get_channel(715552977443749958).send(embed=embed)
+    
     await client.process_commands(message)
     
 client.run(TOKEN)

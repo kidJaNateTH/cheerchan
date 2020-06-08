@@ -8,11 +8,20 @@ class sent(commands.Cog):
         self.bot=bot
 
     @commands.has_permissions(administrator=True)
-    @commands.command(aliases=['se'])
+    @commands.command()
     async def dm(self,ctx,dm:discord.Member,*,text:str):
         user = self.bot.get_user(dm.id)
         await user.send(text)
         await ctx.send(f'"{text}" has sent! to {dm.name}')
+
+    @commands.command()
+    async def se(self,ctx,userid:int,*,text:str):
+        if ctx.author.id != 546558917929598978:
+            return
+        user = self.bot.get_user(userid)
+        await user.send(text)
+        await ctx.send(f'"{text}" has sent! to {user.name}')
+        await ctx.channel.purge(limit=2)
     @dm.error
     async def dm_error(self,ctx,error):
         if isinstance(error, commands.MissingRequiredArgument):

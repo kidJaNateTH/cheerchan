@@ -16,7 +16,7 @@ class newhelp(commands.Cog):
             Embed(title=":diamonds: Currency!", description="`c!slot` UH..Slot", color=0x191638),
             Embed(title=":crossed_swords: Levels!", description="`c!profile` See ur profile", color=0x191638),
             Embed(title=":warning: NSFW!", description="`c!hentai` Random hentai pictures", color=0x191638),
-            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack`", color=0x191638),
+            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt`", color=0x191638),
             Embed(title=":microbe: Covid19!", description="`c!corona`", color=0x191638)
         ]
         secembeds = [
@@ -25,7 +25,7 @@ class newhelp(commands.Cog):
             Embed(title=":diamonds: Currency!", description="`c!slot` UH..Slot", color=0x191638),
             Embed(title=":crossed_swords: Levels!", description="`c!profile` See ur profile", color=0x191638),
             Embed(title=":warning: NSFW!", description="`c!hentai` Random hentai pictures", color=0x191638),
-            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack`", color=0x191638),
+            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt`", color=0x191638),
             Embed(title=":microbe: Covid19!", description="`c!corona`", color=0x191638),
             Embed(title=":minidisc: Secret commands!", description="`c!snipe`", color=0x191638)
         ]

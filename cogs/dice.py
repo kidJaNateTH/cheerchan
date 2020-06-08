@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 import random
-import time
+import asyncio
 
 class dice(commands.Cog):
     def __init__(self, bot):
@@ -16,56 +16,38 @@ class dice(commands.Cog):
             colour = discord.Color.blue()
         )
         embed.set_author(name='Rolling a dice! ⚀')
-        time.sleep(0.1)
+        await asyncio.sleep(0.1)
         msg = await ctx.send(embed=embed)
         
         embed.set_author(name='Rolling a dice! ⚅')
-        time.sleep(0.2)
+        await asyncio.sleep(0.2)
         await msg.edit(embed=embed)
 
         embed.set_author(name='Rolling a dice! ⚂')
-        time.sleep(0.3)
+        await asyncio.sleep(0.3)
         await msg.edit(embed=embed)
         
         embed.set_author(name='Rolling a dice! ⚁')
-        time.sleep(0.4)
+        await asyncio.sleep(0.4)
         await msg.edit(embed=embed)
 
         if result == 1:
-            embed.set_author(name='Rolling a dice! ⚀')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
-
+            dicebox = "⚀"
         if result == 2:
-            embed.set_author(name='Rolling a dice! ⚁')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
-
+            dicebox = "⚁"
         if result == 3:
-            embed.set_author(name='Rolling a dice! ⚂')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
-
+            dicebox = "⚂"
         if result == 4:
-            embed.set_author(name='Rolling a dice! ⚃')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
-
+            dicebox = "⚃"
         if result == 5:
-            embed.set_author(name='Rolling a dice! ⚄')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
-
+            dicebox = "⚃"
         if result == 6:
-            embed.set_author(name='Rolling a dice! ⚅')
-            embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
-            time.sleep(0.1)
-            await msg.edit(embed=embed)
+            dicebox = "⚅"
+
+        embed.set_author(name=f'Rolling a dice! {dicebox}')
+        embed.add_field(name=f":game_die: The values are {result}",value='_ _',inline=False)
+        await asyncio.sleep(0.1)
+        await msg.edit(embed=embed)
 
 
 def setup(bot):

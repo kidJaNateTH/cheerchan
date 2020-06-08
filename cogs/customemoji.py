@@ -9,7 +9,7 @@ class customemoji(commands.Cog):
     @commands.command(aliases=['emo'])
     async def emoji(self,ctx,e:str):
         await ctx.message.delete()
-        await ctx.send(file=discord.File(e+'.png'))
+        await ctx.send(file=discord.File(f"./emoji/{e}"))
     @emoji.error
     async def emoji_error(self,ctx,error):
         if(error,commands.MissingRequiredArgument):
@@ -18,9 +18,11 @@ class customemoji(commands.Cog):
                 description = "Emoji not found 404",
                 colour = discord.Colour.blue()
             )
-            embed.add_field(name="thinking",value="_ _",inline=False)
-            embed.add_field(name="thonk",value="_ _",inline=False)
-            embed.add_field(name="shooter",value="_ _",inline=False)
+            
+            embed.add_field(name="thinking.png",value="_ _",inline=False)
+            embed.add_field(name="thonk.png",value="_ _",inline=False)
+            embed.add_field(name="shooter.png",value="_ _",inline=False)
+            embed.add_field(name="frogclap.gif",value="_ _",inline=False)
             embed.set_footer(text=error)
             await ctx.send(embed=embed)
 

@@ -10,11 +10,17 @@ from PIL import ImageDraw
 import requests
 from PIL import ImageFilter
 
+#gif
+import imageio as imo
+from glob import glob
+
+import os
+
 class memes(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
-    @commands.command(aliases=['HAX','hax','Hacc','hacc'])
+    @commands.command(aliases=['HAX','hax','Hacc','hacc','haX'])
     async def hack(self,ctx,member:discord.Member):
         embed = discord.Embed(
             title = f":green_circle: Hacking {member.display_name}",
@@ -50,16 +56,24 @@ class memes(commands.Cog):
         if err == True:
             erro = random.randint(1,3)
             if erro == 1:
-                await msg.edit(content="Metasploit error")
+                embed.clear_fields()
+                embed.add_field(name=f":red_circle: Metasploit error",value=f"_ _",inline=True)
+                await msg.edit(embed=embed)
             if erro == 2:
-                await msg.edit(content="Missing sudo error")
+                embed.clear_fields()
+                embed.add_field(name=f":red_circle: Missing sudo error",value=f"_ _",inline=True)
+                await msg.edit(embed=embed)
             if erro == 3:
-                await msg.edit(content="Missing pip error")
+                embed.clear_fields()
+                embed.add_field(name=f":red_circle: Missing pip error",value=f"_ _",inline=True)
+                await msg.edit(embed=embed)
             await asyncio.sleep(2)
-            await msg.edit(content="Fixing that problems!")
+            embed.clear_fields()
+            embed.add_field(name=f":orange_circle: Fixing that problems",value=f"_ _",inline=True)
+            await msg.edit(embed=embed)
             await asyncio.sleep(5)
 
-            er = random.randint(1,5)
+            er = random.randint(1,7)
             if er == 1:
                 email = "@yahoo.com"
             if er == 2:
@@ -70,6 +84,10 @@ class memes(commands.Cog):
                 email = "@gmail.com"
             if er == 5:
                 email = "@hotmail.com"
+            if er == 6:
+                email = "@jalernพร.com"
+            if er == 7:
+                email = "@watpahuapong.com"
             await msg.edit(content="_ _")
             embed.clear_fields()
             embed.add_field(name=f":blue_circle: Found! {member.name}{email}",value=f"_ _",inline=True)
@@ -101,7 +119,7 @@ class memes(commands.Cog):
             await msg.edit(embed=embed)
             await asyncio.sleep(0.5)
 
-            re = random.randint(1,5)
+            re = random.randint(1,7)
             password = str
             if re == 1:
                 password = "KiccMyAsS1234"
@@ -113,6 +131,10 @@ class memes(commands.Cog):
                 password = "1234kaito7890"
             if re == 5:
                 password = "jojoisbest"
+            if re == 6:
+                password = "nou123456"
+            if re == 7:
+                password = "imcoolyouknow"
             embed = discord.Embed(
                 title = f":green_circle: Hacked {member.display_name}",
                 colour = discord.Colour.green()
@@ -184,7 +206,8 @@ class memes(commands.Cog):
                 colour = discord.Colour.green()
             )
             embed.clear_fields()
-            embed.add_field(name=f"Email: {member.name}{email}\nPassword: {password}",value=f"_ _",inline=True)
+            embed.add_field(name=f"Email: `{member.name}{email}`\nPassword: `{password}`",value=f"_ _",inline=True)
+            embed.set_thumbnail(url=member.avatar_url)
             await msg.edit(embed=embed)
 
     @commands.command()
@@ -272,7 +295,61 @@ class memes(commands.Cog):
         img.save('yes_nomeme.png')
         await ctx.send(file=discord.File("yes_nomeme.png"))
         
+    @commands.command()
+    async def salt(self,ctx,member:discord.Member=None):
+        member = ctx.author if not member else member
+        print("1")
+        image_url = member.avatar_url
+        img_data = requests.get(image_url).content
+        with open('ctxformeme.png', 'wb') as handler:
+            handler.write(img_data)
+        img = Image.open("ctxformeme.png")
+        s = Image.open("./resources/salt.png")
+        new_size = (700,700)
+        avatar = (1000,1000)
+        s = s.resize(new_size)
+        img = img.resize(avatar)
+        s = s.rotate(-135)
+        img.paste(s,(-180,-180),s)
+        img.save(f'saltmeme{member.id}01.png')
+        #await ctx.send(file=discord.File(f'saltmeme{ctx.author.id}01.png'))
 
+
+        print("2")
+        img = Image.open("ctxformeme.png")
+        s = Image.open("./resources/salt.png")
+        new_size = (700,700)
+        avatar = (1000,1000)
+        s = s.resize(new_size)
+        img = img.resize(avatar)
+        s = s.rotate(-135)
+        img.paste(s,(-100,-140),s)
+        img.save(f'saltmeme{member.id}02.png')
+        #await ctx.send(file=discord.File(f'saltmeme{ctx.author.id}.png'))
+
+
+        print("3")
+        img = Image.open("ctxformeme.png")
+        s = Image.open("./resources/salt.png")
+        new_size = (700,700)
+        avatar = (1000,1000)
+        s = s.resize(new_size)
+        img = img.resize(avatar)
+        s = s.rotate(-135)
+        img.paste(s,(-230,-160),s)
+        img.save(f'saltmeme{member.id}03.png')
+        #await ctx.send(file=discord.File(f'saltmeme{ctx.author.id}.png'))
+
+        print("converting")
+        chuefilerupphap = glob(f'saltmeme{member.id}*.png')
+        ruamrupphap = [imo.imread(r) for r in chuefilerupphap]
+        imo.mimwrite(f'saltmeme{member.id}.gif',ruamrupphap,fps=30)
+        await ctx.send(file=discord.File(f'saltmeme{member.id}.gif'))
+
+        os.remove(f'saltmeme{member.id}.gif')
+        os.remove(f'saltmeme{member.id}03.png')
+        os.remove(f'saltmeme{member.id}02.png')
+        os.remove(f'saltmeme{member.id}01.png')
 
 def setup(bot):
     bot.add_cog(memes(bot))

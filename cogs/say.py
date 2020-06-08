@@ -35,7 +35,7 @@ class say(commands.Cog):
     @say.error
     async def say_error(self,ctx,error):
         if isinstance(error, commands.MissingRequiredArgument):
-            msg = await ctx.send(f"Hmm.. Something went wrong? Please try again \n`c!say <int>`")
+            msg = await ctx.send(f"Hmm.. Something went wrong? Please try again \n`c!say <str>`")
             await msg.add_reaction("😳")
 
 def setup(bot):
