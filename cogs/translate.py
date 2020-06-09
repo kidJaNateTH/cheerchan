@@ -26,11 +26,27 @@ class TRANS(commands.Cog):
         embed.set_footer(icon_url=ctx.author.avatar_url,text=f"Request by {ctx.author.display_name}")
         await ctx.send(embed=embed)
 
+    @translate.error
+    async def trans_error(self,ctx,error):
+        if isinstance(error,commands.MissingRequiredArgument):
+            await ctx.send("Missing Required Argument\nc!translate `<Destination lang>` `<text>`")
+            embed = discord.Embed(
+                title = "All languages support",
+                colour = discord.Colour.blue()
+            )
+            from googletrans import LANGUAGES
+            embed.set_thumbnail(url="https://www.aniaetleprogrammeur.com/wp-content/uploads/2019/02/Google_Translate_Icon.png")
+            for lang in LANGUAGES:
+                embed.add_field(name=f"{lang} - {LANGUAGES[lang]}",value="_ _",inline=True)
+            embed.set_author(name="See more",url="https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code",icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wikimedia_Community_Logo_optimized.svg/20px-Wikimedia_Community_Logo_optimized.svg.png")
+            await ctx.send(embed=embed)
+
     @commands.command()
     async def ctm(self,ctx,p:int):
-        await ctx.send("Welcome to counting to million\nᵂᵃʳⁿᶦⁿᵍ ᵗʰᶦˢ ᶜᵒᵐᵐᵃⁿᵈ ᵐᵃʸ ʷᶦˡˡ ᵈᵉˢᵗʳᵒʸ ᵐʸ ᶜᵒᵐᵖᵘᵗᵉʳ")
         if ctx.author.id != 546558917929598978:
             return await ctx.send("Nope")
+        await ctx.send(f"Welcome to counting to million on **{ctx.channel.name}** channel\nᵂᵃʳⁿᶦⁿᵍ ᵗʰᶦˢ ᶜᵒᵐᵐᵃⁿᵈ ᵐᵃʸ ʷᶦˡˡ ᵈᵉˢᵗʳᵒʸ ᵐʸ ᶜᵒᵐᵖᵘᵗᵉʳ")
+        
         t = 1
         ending ={}
         while t <= p:

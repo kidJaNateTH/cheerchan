@@ -23,6 +23,8 @@ class customemoji(commands.Cog):
             embed.add_field(name="thonk.png",value="_ _",inline=False)
             embed.add_field(name="shooter.png",value="_ _",inline=False)
             embed.add_field(name="frogclap.gif",value="_ _",inline=False)
+            embed.add_field(name="ThinkSpin.gif",value="_ _",inline=False)
+            embed.add_field(name="HyperThinkSpin.gif",value="_ _",inline=False)
             embed.set_footer(text=error)
             await ctx.send(embed=embed)
 

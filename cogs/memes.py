@@ -280,7 +280,36 @@ class memes(commands.Cog):
         await ctx.send(file=discord.File(f'bedmeme{ctx.author.id}.png'))
 
     @commands.command(aliases=['noyes'])
-    async def yesno(self,ctx,member:discord.Member=None):
+    async def yesno(self,ctx,member:discord.Member=None,member2:discord.Member=None):
+        if member2 != None:
+            ctx_name = member2.name
+            member2_name = member.name
+
+            
+
+            img = Image.open("./MEME/yes_no.png")
+            font = ImageFont.truetype("Modern_Sans_Light.otf", 70)
+            draw = ImageDraw.Draw(img)
+
+            w, h = draw.textsize(member2_name)
+            w2, h2 = draw.textsize(ctx_name)
+
+            W, H = (1140,1200)
+
+            W2, H2 = (1140,300)
+
+
+            draw.text(((W-w)/2,(H-h)/2), f"{ctx_name}", (0, 0, 0), font=font)
+            draw.text(((W2-w2)/2,(H2-h2)/2), f"{member2_name}", (0, 0, 0), font=font)
+            img.save(f'yes_nomeme{ctx.author.id}.png')
+            await ctx.send(file=discord.File(f"yes_nomeme{ctx.author.id}.png"))
+            os.remove(f"yes_nomeme{ctx.author.id}.png")
+            return
+        
+        
+        
+        
+        
         ##MEMBER AVATAR
         if not member == None:
             member_name = member.display_name
@@ -290,10 +319,22 @@ class memes(commands.Cog):
         img = Image.open("./MEME/yes_no.png")
         font = ImageFont.truetype("Modern_Sans_Light.otf", 70)
         draw = ImageDraw.Draw(img)
-        draw.text((500, 150), f"{member_name}", (0, 0, 0), font=font)
-        draw.text((500, 600), f"{ctx_name}", (0, 0, 0), font=font)
-        img.save('yes_nomeme.png')
-        await ctx.send(file=discord.File("yes_nomeme.png"))
+
+
+
+        w, h = draw.textsize(member_name)
+
+        W, H = (1130,1200)
+
+        W2, H2 = (1250,300)
+
+
+
+        draw.text(((W-w)/2,(H-h)/2), f"{member_name}", (0, 0, 0), font=font)
+        draw.text(((W2-w)/2,(H2-h)/2), f"{ctx_name}", (0, 0, 0), font=font)
+        img.save(f'yes_nomeme{ctx.author.id}.png')
+        await ctx.send(file=discord.File(f"yes_nomeme{ctx.author.id}.png"))
+        os.remove(f"yes_nomeme{ctx.author.id}.png")
         
     @commands.command()
     async def salt(self,ctx,member:discord.Member=None):
@@ -351,5 +392,30 @@ class memes(commands.Cog):
         os.remove(f'saltmeme{member.id}02.png')
         os.remove(f'saltmeme{member.id}01.png')
 
+    @commands.command()
+    async def wanted(self,ctx,member:discord.Member=None):
+        member = ctx.author if not member else member
+        image_url = member.avatar_url
+        img_data = requests.get(image_url).content
+        with open(f'ctxformeme{member.id}.png', 'wb') as handler:
+            handler.write(img_data)
+        img = Image.open(f"ctxformeme{member.id}.png")
+        s = Image.open("./MEME/wanted.png")
+        new_size = (240,240)
+        img = img.resize(new_size)
+        s.paste(img,(90,130))
+
+        font = ImageFont.truetype("./font/Nashville-z8w0.ttf", 110)
+        draw = ImageDraw.Draw(s)
+        member_name = member.name
+        w, h = draw.textsize(member_name)
+
+        W, H = (130,850)
+
+        draw.text(((W-w)/2,(H-h)/2), f"{member_name}", (0, 0, 0), font=font)
+
+        s.save(f'wanted{member.id}.png')
+        await ctx.send(file=discord.File(f'wanted{member.id}.png'))
+        os.remove(f'wanted{member.id}.png')
 def setup(bot):
     bot.add_cog(memes(bot))

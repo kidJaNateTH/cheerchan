@@ -1,7 +1,13 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands,tasks
 from discord.utils import get
 from discord.ext.commands import Bot
+from discord import opus
+from discord import User
+from discord.ext.tasks import loop
+from discord.ext.commands import Bot, guild_only
+from itertools import cycle
+
 import os
 import json
 import asyncio
@@ -11,6 +17,9 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 import random
+
+from disputils import BotEmbedPaginator, BotConfirmation, BotMultipleChoice
+from discord import Embed
 TOKEN = 'NzExNTEwMTYyMTgzMTU5ODM4.XsErog.yVawoQK3VswcrS4OG_5lMlmgOp4'
 client = commands.Bot(command_prefix = 'c!')
 
@@ -20,7 +29,8 @@ async def on_ready():
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game("Fixing bugs"))
+    servers = str(len(client.guilds))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
     client.load_extension('cogs.ping')
     client.load_extension('cogs.dice')
     client.load_extension('cogs.brainout')
@@ -39,7 +49,36 @@ async def on_ready():
     client.load_extension('cogs.memes')
     client.load_extension('cogs.music')
     client.load_extension('cogs.translate')
+    client.loop.create_task(change_status())
 
+async def change_status():
+    while True:
+        
+        servers = str(len(client.guilds))
+        print(f"Update server count, {servers} Servers")
+        await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
+        await asyncio.sleep(10)
+
+
+
+
+@client.event
+async def on_message_delete(message):
+    p = False
+    if p == True:
+        #await message.channel.send(message.guild.id)
+        if message.author.bot or message.author.id == 546558917929598978:
+            print(f"Returned {message.author} message")
+            return
+        embed = discord.Embed(
+            title = f":smirk: {message.author}",
+            colour = discord.Colour.dark_blue()
+        )
+        embed.add_field(name=f"**{message.content}**",value="_ _",inline=True)
+        embed.set_footer(text=f"Bad {message.author.name} has deleted their sins")
+        embed.set_thumbnail(url=message.author.avatar_url)
+        await message.channel.send(embed=embed)
+    
 
 @client.command()
 async def level(ctx,member:discord.Member=None):
@@ -234,7 +273,10 @@ async def on_message(message):
         return
     if message.author != message.author.bot:
         if not message.guild:
-            print("DM works")
+            print("{message.author} DM to cheer chan")
+            if message.content == "c!help":
+                ctx = client.get_user(message.author.id)
+                await ctx.send("Please type in server")
             #if message.content == 'hi' or message.content == 'Hi' or message.content == 'Hoi' or message.content == 'hoi':
             #    user = client.get_user(message.author.id)
             #    return await user.send(f"Hi {message.author.name}")
@@ -249,7 +291,7 @@ async def on_message(message):
             embed.add_field(name=f"User ID: ",value=message.author.id,inline=False)
             embed.add_field(name=f"Content: ",value=message.content,inline=False)
             #CTTS
-            await client.get_guild(706700216455135316).get_channel(708537666538569812).send(embed=embed)
+            await client.get_guild(719837288670167100).get_channel(719837289349644390).send(embed=embed)
             #OSUFG
             #return await client.get_guild(690410179157557298).get_channel(715552977443749958).send(embed=embed)
 
@@ -274,21 +316,23 @@ async def on_message(message):
                 users[author_id]['exp'] += 1
                     
                 #json.dump(f,users)
-
-    if lvl_up(author_id):
-        ctx = client.get_channel(message.channel.id)
-        dm = client.get_user(message.author.id)
-        #await dm.send(f"{message.author.mention} is now level {users[author_id]['level']}")
-        if users[author_id]['level'] == 5:
-            await ctx.send(f"{message.author.mention}, You're unlocked tier 1 profile background!, type `c!profile`")
-        if users[author_id]['level'] == 7:
-            await ctx.send(f"{message.author.mention}, You're unlocked tier 2 profile background!, type `c!profile`")
-        if users[author_id]['level'] == 9:
-            await ctx.send(f"{message.author.mention}, You're unlocked tier 3 profile background!, type `c!profile`")
-        if users[author_id]['level'] == 11:
-            await ctx.send(f"{message.author.mention}, You're unlocked tier 4 profile background!, type `c!profile`")
-        if users[author_id]['level'] == 15:
-            await ctx.send(f"{message.author.mention}, You're unlocked tier 5 profile background!, type `c!profile`")
+    try:
+        if lvl_up(author_id):
+            ctx = client.get_channel(message.channel.id)
+            dm = client.get_user(message.author.id)
+            #await dm.send(f"{message.author.mention} is now level {users[author_id]['level']}")
+            if users[author_id]['level'] == 5:
+                await ctx.send(f"{message.author.mention}, You're unlocked tier 1 profile background!, type `c!profile`")
+            if users[author_id]['level'] == 7:
+                await ctx.send(f"{message.author.mention}, You're unlocked tier 2 profile background!, type `c!profile`")
+            if users[author_id]['level'] == 9:
+                await ctx.send(f"{message.author.mention}, You're unlocked tier 3 profile background!, type `c!profile`")
+            if users[author_id]['level'] == 11:
+                await ctx.send(f"{message.author.mention}, You're unlocked tier 4 profile background!, type `c!profile`")
+            if users[author_id]['level'] == 15:
+                await ctx.send(f"{message.author.mention}, You're unlocked tier 5 profile background!, type `c!profile`")
+    except:
+        print("can't send level up")
     ###############################
 
     #snipe
@@ -321,5 +365,5 @@ async def on_message(message):
 
     
     await client.process_commands(message)
-    
+
 client.run(TOKEN)

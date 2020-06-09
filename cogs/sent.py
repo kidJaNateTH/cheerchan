@@ -15,12 +15,12 @@ class sent(commands.Cog):
         await ctx.send(f'"{text}" has sent! to {dm.name}')
 
     @commands.command()
-    async def se(self,ctx,userid:int,*,text:str):
+    async def se(self,ctx,dm:discord.Member,*,text:str):
         if ctx.author.id != 546558917929598978:
             return
-        user = self.bot.get_user(userid)
+        user = self.bot.get_user(dm.id)
         await user.send(text)
-        await ctx.send(f'"{text}" has sent! to {user.name}')
+        await ctx.send(f'"{text}" has sent! to {dm.name}')
         await ctx.channel.purge(limit=2)
     @dm.error
     async def dm_error(self,ctx,error):
