@@ -14,7 +14,7 @@ class ping(commands.Cog):
     @commands.command()
     async def hentai(self,ctx,amount:int):
         if not ctx.channel.is_nsfw():
-            return await ctx.send(f"You can't use this command here")
+            return await ctx.send(f"You must use this command in NSFW channel :warning:")
         link1 = 'https://img1.gelbooru.com/thumbnails/d6/b7/thumbnail_d6b7a1a06c8a51a1f274f9b051da50cb.jpg'
         link2 = 'https://img1.gelbooru.com/thumbnails/d9/b0/thumbnail_d9b06e03762a8e2c5cb7240c5c8d1a69.jpg'
         link3 = 'https://img1.gelbooru.com/thumbnails/78/7c/thumbnail_787c228c0be8eb8d0e738d678c45a701.jpg'

@@ -31,13 +31,13 @@ async def on_ready():
     print(f'With ID: {client.user.id}')
     servers = str(len(client.guilds))
     await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
+    
     client.load_extension('cogs.ping')
     client.load_extension('cogs.dice')
     client.load_extension('cogs.brainout')
     client.load_extension('cogs.say')
     client.load_extension('cogs.fight')
     client.load_extension('cogs.ytsearch')
-    #client.load_extension('cogs.help')
     client.load_extension('cogs.avatar')
     client.load_extension('cogs.clear')
     client.load_extension('cogs.hentai')
@@ -49,6 +49,9 @@ async def on_ready():
     client.load_extension('cogs.memes')
     client.load_extension('cogs.music')
     client.load_extension('cogs.translate')
+    client.load_extension('cogs.server')
+    
+    client.load_extension('cogs.gelbooru')
     client.loop.create_task(change_status())
 
 async def change_status():
