@@ -266,7 +266,7 @@ async def on_member_join(member):
     mid = member.id
     server_name = member.guild.name
     ctx = client.get_user(mid)
-    await ctx.send(f"Hi! **{member.name}**, Welcome to **{server_name}**!\nIf you're bored you can talk with me!")
+    await ctx.send(f"Hi! **{member.name}**, Welcome to **{server_name}**!\nDon't forget to join Cheer Chan Support server\nhttps://discord.gg/yMHdQkE")
 
 @client.event
 async def on_message(message):
@@ -276,7 +276,7 @@ async def on_message(message):
         return
     if message.author != message.author.bot:
         if not message.guild:
-            print("{message.author} DM to cheer chan")
+            print(f"{message.author} DM to cheer chan")
             if message.content == "c!help":
                 ctx = client.get_user(message.author.id)
                 await ctx.send("Please type in server")
