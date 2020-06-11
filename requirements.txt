@@ -1,3 +1,4 @@
+pygelbooru==0.3.0
 imageio==2.8.0
 aiohttp==3.6.2
 Animapy==1.5.3.1
