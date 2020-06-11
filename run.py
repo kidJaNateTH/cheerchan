@@ -344,22 +344,25 @@ async def on_message(message):
     file.write(msg)
         
     if message.content == 'c!snipe':
-            if message.author.id == 546558917929598978 or message.author.id == 507827170261991464:
-                user = client.get_user(message.author.id)
-                channel = client.get_channel(message.channel.id)
-                try:
-                    size = os.stat("snipe.cheerchan")
-                    if size.st_size >= 8000000:
-                        await channel.send(f"Detail: `snipe.cheerchan`\nSize: `{size.st_size} Bytes`")
-                        os.remove("snipe.cheerchan")
-                        return await channel.send("OOF i think snipe file is over 8Mbs, I will delete it now")
-                except:
-                    return await channel.send("I not found snipe file...")
-                await channel.send("I has send `snipe.cheerchan` to your DM\nCheck it out")
-                await channel.send(f"Detail: `snipe.cheerchan`\nSize: `{size.st_size} Bytes`")
-                await user.send(file=discord.File("snipe.cheerchan"))
-            else:
-                return await channel.send("nub, You're not my Owner")
+        if message.author.id == 546558917929598978 or message.author.id == 507827170261991464 or message.author.id == 508473794994896896:
+            user = client.get_user(message.author.id)
+            channel = client.get_channel(message.channel.id)
+            try:
+                size = os.stat("snipe.cheerchan")
+                if size.st_size >= 8000000:
+                    await channel.send(f"Detail: `snipe.cheerchan`\nSize: `{size.st_size} Bytes`")
+                    os.remove("snipe.cheerchan")
+                    return await channel.send("OOF i think snipe file is over 8Mbs, I will delete it now")
+            except:
+                return await channel.send("Not found snipe file...")
+            await channel.send("I has send `snipe.cheerchan` to your DM\nCheck it out")
+            await channel.send(f"Detail: `snipe.cheerchan`\nSize: `{size.st_size} Bytes`")
+            await user.send(file=discord.File("snipe.cheerchan"))
+        else:
+            channel = client.get_channel(message.channel.id)
+            await channel.send("nub, You're not my Owner")
+            user = client.get_user(546558917929598978)
+            await user.send(f"{message.author} trying to use snipe command")
     ###############################
             
 

@@ -30,13 +30,8 @@ class sent(commands.Cog):
         if isinstance(error,commands.MissingPermissions):
             msg = await ctx.send(f"Hmm.. I think you need more poppy")
             await msg.add_reaction("😢")
-    @commands.command()
-    async def snipe(self,ctx):
-        if ctx.author.id != 546558917929598978:
-            return await ctx.send("You can't use this command")
-    @snipe.error
-    async def snipe_error(self,ctx,error):
-        return await ctx.send(f"Something went wrong, See the console\n```css\n{error}\n```")
+
+
 
 
 
