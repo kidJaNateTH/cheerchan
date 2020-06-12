@@ -118,7 +118,13 @@ class ping(commands.Cog):
     @hentai.error
     async def hentai_error(self,ctx,error):
         if isinstance(error, commands.MissingRequiredArgument):
-            msg = await ctx.send(f"Hmm.. Something went wrong? Please try again \n`c!hentai <int>`")
+            embed = discord.Embed(
+                title = "ERROR",
+                color = discord.Colour.red()
+            )
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
+            embed.add_field(name="Hmm.. Something went wrong? Please try again \n`c!hentai <int>`",value="_ _",inline=True)
+            msg = await ctx.send(embed=embed)
             await msg.add_reaction("😳")
 
 

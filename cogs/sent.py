@@ -14,7 +14,7 @@ class sent(commands.Cog):
             await ctx.send("No thanks, I'm not alone")
             return
         if dm.bot:
-            await ctx.send("srsly?, it's just bot")
+            await ctx.send("Seriously?, it's just bot")
             return
         
         user = self.bot.get_user(dm.id)
@@ -29,7 +29,7 @@ class sent(commands.Cog):
             await ctx.send("No thanks, I'm not alone")
             return
         if dm.bot:
-            await ctx.send("srsly?, it's just bot")
+            await ctx.send("Seriously?, it's just bot")
             return
         
         user = self.bot.get_user(dm.id)
@@ -49,6 +49,7 @@ class sent(commands.Cog):
                 title = "ERROR",
                 colour = discord.Colour.red()
             )
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
             embed.add_field(name="Something went wrong, maybe they are blocked me, see the console",value=f"{error}",inline=True)
             await ctx.send(embed=embed)
 

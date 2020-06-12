@@ -29,7 +29,16 @@ class TRANS(commands.Cog):
     @translate.error
     async def trans_error(self,ctx,error):
         if isinstance(error,commands.MissingRequiredArgument):
-            await ctx.send("Missing Required Argument\nc!translate `<Destination lang>` `<text>`")
+            embed1 = discord.Embed(
+                title = "ERROR",
+                color = discord.Colour.red()
+            )
+            embed1.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
+            embed1.add_field(name="Missing Required Argument\nc!translate <Destination lang> <text>",value="_ _",inline=True)
+            msg = await ctx.send(embed=embed1)
+            await msg.add_reaction("😳")
+
+            #await ctx.send("Missing Required Argument\nc!translate `<Destination lang>` `<text>`")
             embed = discord.Embed(
                 title = "All languages support",
                 colour = discord.Colour.blue()

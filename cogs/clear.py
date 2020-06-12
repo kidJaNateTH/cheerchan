@@ -11,15 +11,27 @@ class clear(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def clear(self,ctx, amount:int):
         if(amount <= 0):
-            return await ctx.send(f"Hmm... {ctx.author.name}, I think i can't delete {amount} messages, I need more poppy")
+            return await ctx.send(f"Hmm... {ctx.author.name}, I think i can't delete {amount} messages")
         await ctx.channel.purge(limit=amount+1)
     @clear.error
     async def clear_error(self,ctx,error):
         if isinstance(error, commands.MissingRequiredArgument):
-            msg = await ctx.send(f"Hmm.. Something went wrong? Please try again \n`c!clear <int>`")
+            embed = discord.Embed(
+                title = "ERROR",
+                color = discord.Colour.red()
+            )
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
+            embed.add_field(name="Hmm.. Something went wrong? Please try again \nc!clear <int>",value="_ _",inline=True)
+            msg = await ctx.send(embed=embed)
             await msg.add_reaction("😳")
         if isinstance(error,commands.MissingPermissions):
-            msg = await ctx.send(f"Hmm.. I think you not have permissions to do that")
+            embed = discord.Embed(
+                title = "ERROR",
+                color = discord.Colour.red()
+            )
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
+            embed.add_field(name="Hmm.. I think you not have permissions to do that",value="_ _",inline=True)
+            msg = await ctx.send(embed=embed)
             await msg.add_reaction("😢")
             
     @commands.command()

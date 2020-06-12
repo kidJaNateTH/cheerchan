@@ -147,6 +147,7 @@ class money(commands.Cog):
             description = error,
             colour = discord.Colour.red()
         )
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
         await ctx.send(embed=embed)
 
     
