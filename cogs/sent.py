@@ -10,6 +10,13 @@ class sent(commands.Cog):
     @commands.has_permissions(administrator=True)
     @commands.command()
     async def dm(self,ctx,dm:discord.Member,*,text:str):
+        if dm.id == 711510162183159838:
+            await ctx.send("No thanks, I'm not alone")
+            return
+        if dm.bot:
+            await ctx.send("srsly?, it's just bot")
+            return
+        
         user = self.bot.get_user(dm.id)
         await user.send(text)
         await ctx.send(f'"{text}" has sent! to {dm.name}')
@@ -18,6 +25,13 @@ class sent(commands.Cog):
     async def se(self,ctx,dm:discord.Member,*,text:str):
         if ctx.author.id != 546558917929598978:
             return
+        if dm.id == 711510162183159838:
+            await ctx.send("No thanks, I'm not alone")
+            return
+        if dm.bot:
+            await ctx.send("srsly?, it's just bot")
+            return
+        
         user = self.bot.get_user(dm.id)
         await user.send(text)
         await ctx.send(f'"{text}" has sent! to {dm.name}')
@@ -30,6 +44,13 @@ class sent(commands.Cog):
         if isinstance(error,commands.MissingPermissions):
             msg = await ctx.send(f"Hmm.. I think you need more poppy")
             await msg.add_reaction("😢")
+        if isinstance(error,commands.CommandInvokeError):
+            embed = discord.Embed(
+                title = "ERROR",
+                colour = discord.Colour.red()
+            )
+            embed.add_field(name="Something went wrong, maybe they are blocked me, see the console",value=f"{error}",inline=True)
+            await ctx.send(embed=embed)
 
 
 

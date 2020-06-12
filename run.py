@@ -21,7 +21,7 @@ import random
 from disputils import BotEmbedPaginator, BotConfirmation, BotMultipleChoice
 from discord import Embed
 TOKEN = 'NzExNTEwMTYyMTgzMTU5ODM4.XsErog.yVawoQK3VswcrS4OG_5lMlmgOp4'
-client = commands.Bot(command_prefix = 'cc!')
+client = commands.Bot(command_prefix = 'c!')
 
 
 @client.event
@@ -32,7 +32,7 @@ async def on_ready():
     servers = str(len(client.guilds))
     #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
     
-    await client.change_presence(activity=discord.Streaming(name=f"cc!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
+    await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
 
     client.load_extension('cogs.ping')
     client.load_extension('cogs.dice')
@@ -62,7 +62,7 @@ async def change_status():
         servers = str(len(client.guilds))
         print(f"Update server count, {servers} Servers")
         #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
-        await client.change_presence(activity=discord.Streaming(name=f"cc!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
+        await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
         await asyncio.sleep(10)
 
 

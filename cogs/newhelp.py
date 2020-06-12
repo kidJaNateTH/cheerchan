@@ -17,7 +17,7 @@ class newhelp(commands.Cog):
             Embed(title=":jigsaw: Other commands!", description="`c!translate` Translate the languages", color=0x191638),
             Embed(title=":crossed_swords: Levels!", description="`c!profile` See ur profile", color=0x191638),
             Embed(title=":warning: NSFW!", description="`c!hentai` Random hentai pictures\n`c!gelbooru` Get gelbooru picture by tag", color=0x191638),
-            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt`", color=0x191638),
+            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt` \n`c!wanted`", color=0x191638),
             Embed(title=":microbe: Covid19!", description="`c!corona`", color=0x191638)
         ]
         secembeds = [
@@ -26,7 +26,7 @@ class newhelp(commands.Cog):
             Embed(title=":diamonds: Minigames!", description="`c!slot` UH..Slot", color=0x191638),
             Embed(title=":crossed_swords: Levels!", description="`c!profile` See ur profile", color=0x191638),
             Embed(title=":warning: NSFW!", description="`c!hentai` Random hentai pictures\n`c!gelbooru` Get gelbooru picture by tag", color=0x191638),
-            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt`", color=0x191638),
+            Embed(title=":eyes: Memes!", description="`c!dltv` \n`c!bed` \n`c!yesno` \n`c!hack` \n`c!salt` \n`c!wanted`", color=0x191638),
             Embed(title=":microbe: Covid19!", description="`c!corona`", color=0x191638),
             Embed(title=":minidisc: Secret commands!", description="`c!snipe`", color=0x191638)
         ]
