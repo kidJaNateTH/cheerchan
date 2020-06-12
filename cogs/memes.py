@@ -244,6 +244,8 @@ class memes(commands.Cog):
         draw.text((170, 55), "PING : 999+", (0, 0, 0), font=font)
         img.save(f'dltvmeme{ctx.author.id}.png')
         await ctx.send(file=discord.File(f'dltvmeme{ctx.author.id}.png'))
+        os.remove(f'dltvmeme{ctx.author.id}.png')
+        os.remove('ctxformeme.png')
 
     @commands.command()
     async def bed(self,ctx,member:discord.Member=None):
@@ -278,6 +280,8 @@ class memes(commands.Cog):
         draw = ImageDraw.Draw(img)
         img.save(f'bedmeme{ctx.author.id}.png')
         await ctx.send(file=discord.File(f'bedmeme{ctx.author.id}.png'))
+        os.remove(f'bedmeme{ctx.author.id}.png')
+        os.remove('ctxformeme.png')
 
     @commands.command(aliases=['noyes'])
     async def yesno(self,ctx,member:discord.Member=None,member2:discord.Member=None):
@@ -388,6 +392,7 @@ class memes(commands.Cog):
         await ctx.send(file=discord.File(f'saltmeme{member.id}.gif'))
 
         os.remove(f'saltmeme{member.id}.gif')
+        os.remove('ctxformeme.png')
         os.remove(f'saltmeme{member.id}03.png')
         os.remove(f'saltmeme{member.id}02.png')
         os.remove(f'saltmeme{member.id}01.png')

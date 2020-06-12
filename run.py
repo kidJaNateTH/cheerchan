@@ -30,9 +30,15 @@ async def on_ready():
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
     servers = str(len(client.guilds))
+    #playing
     #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
     
+    #streaming
     await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
+
+    #botghost
+    #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="👻 Botghost.com 👻 | type c! for commands"))
+
 
     client.load_extension('cogs.ping')
     client.load_extension('cogs.dice')
@@ -61,8 +67,16 @@ async def change_status():
         
         servers = str(len(client.guilds))
         print(f"Update server count, {servers} Servers")
+        #playing
         #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"c!help | {servers} Servers"))
+
+        #streaming
         await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers",url="https://www.twitch.tv/kidjanateth"))
+
+        #botghost
+        #await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="👻 Botghost.com 👻 | type c! for commands"))
+
+
         await asyncio.sleep(10)
 
 
