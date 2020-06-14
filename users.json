@@ -1,1 +1,57 @@
-{}
+{
+    "449817893442682890": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 44,
+        "lvl": 5,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "RandomMaerks#8088"
+    },
+    "507827170261991464": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 43,
+        "lvl": 5,
+        "premium": true,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Test Week-TopFinger#9145"
+    },
+    "546558917929598978": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 63,
+        "lvl": 5,
+        "premium": true,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "NateTH#0230"
+    },
+    "573416406796992522": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 43,
+        "lvl": 5,
+        "premium": true,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Paffo#3312"
+    },
+    "508473794994896896": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 43,
+        "lvl": 5,
+        "premium": true,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Too cute#2421"
+    }
+}
