@@ -15,6 +15,8 @@ class PROFILE(commands.Cog):
     @commands.command(aliases=['pf'])
     async def profile(self,ctx,member:discord.Member=None):
         member = ctx.author if not member else member
+        if member.bot:
+            return
         
         with open('users.json','r',encoding="utf8") as f:
             users = json.load(f)
@@ -150,50 +152,71 @@ class PROFILE(commands.Cog):
 
     @commands.command(aliases=['custompf','cuspf','customPF'])
     async def customprofile(self,ctx,t:str,url,g=None,b=None):
+        if not t == "bg" or t == "BG" or t == "background" or t == "text":
+            embed = discord.Embed(
+                title = f"{t} Not found",
+                description = "🎀 BG `Change backgound image`\n✨ text `Change text color (RGB)`",
+                colour = discord.Colour.red()
+            )
+            return await ctx.send(embed=embed)
         if t == "bg" or t == "BG" or t == "background":
             if url == "none" or url == "false":
                 embed = discord.Embed(
                     title = "Successfully cleared custom BG",
                     colour = discord.Colour.green()
                 )
-                with open('users.json','r',encoding="utf8") as f:
-                    users = json.load(f)
-                with open('users.json','w',encoding="utf8") as f:
-                    users[str(ctx.author.id)]['customBG'] = False
-                    json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)
-                await ctx.send(embed=embed)
+
+                try:
+                    with open('users.json','r',encoding="utf8") as f:
+                        users = json.load(f)
+                    with open('users.json','w',encoding="utf8") as f:
+                        users[str(ctx.author.id)]['customBG'] = False
+                        json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)
+                    await ctx.send(embed=embed)
+                except:
+                    await ctx.send("Something went wrong, Please try again")
+
                 return
             with open('users.json','r',encoding="utf8") as f:
                 users = json.load(f)
                 if users[str(ctx.author.id)]['premium'] == False:
                     return await ctx.send("You're not have Cheer Chan premium yet")
                 else:
-                    with open('users.json','w',encoding="utf8") as f:
-                        embed = discord.Embed(
-                            title = "Custom profile",
-                            colour = discord.Colour.gold()
-                        )
-                        embed.add_field(name="The recommend size is `2000 * 687`",value=f"Image URL {url}\nPreview",inline=True)
-                        embed.set_image(url=url)
-                        users[str(ctx.author.id)]['customBG'] = url
-                        await ctx.send(embed=embed)
-                        
-                        json.dump(users,f,sort_keys=True, indent=4, ensure_ascii=False)
+                    try:
+                        with open('users.json','w',encoding="utf8") as f:
+                            embed = discord.Embed(
+                                title = "Custom profile",
+                                colour = discord.Colour.gold()
+                            )
+                            embed.add_field(name="The recommend size is `2000 * 687`",value=f"Image URL {url}\nPreview",inline=True)
+                            embed.set_image(url=url)
+                            users[str(ctx.author.id)]['customBG'] = url
+                            await ctx.send(embed=embed)
+                            
+                            json.dump(users,f,sort_keys=True, indent=4, ensure_ascii=False)
+                    except:
+                        await ctx.send("Something went wrong pls try again")
         if t == "text":
-            with open('users.json','r',encoding="utf8") as f:
-                users = json.load(f)
-            with open('users.json','w',encoding="utf8") as f:
-                if g == None or b == None:
-                    await ctx.send("Missing RGB colors")
-                users[str(ctx.author.id)]['textR'] = int(url)
-                users[str(ctx.author.id)]['textG'] = int(g)
-                users[str(ctx.author.id)]['textB'] = int(b)
-                embed = discord.Embed(
-                    title = f"Set text color to {url},{g},{b}",
-                    colour = discord.Colour.from_rgb(int(url),int(g),int(b))
-                )
-                await ctx.send(embed=embed)
-                json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)
+            try:
+                if ',' in str(url) or ',' in str(g) or ',' in str(b):
+                    return await ctx.send("Something error, please check your RGB colours, must not have `,`")
+                with open('users.json','r',encoding="utf8") as f:
+                    users = json.load(f)
+                with open('users.json','w',encoding="utf8") as f:
+                    if g == None or b == None:
+                        return await ctx.send("Missing RGB colors")
+                    users[str(ctx.author.id)]['textR'] = int(url)
+                    users[str(ctx.author.id)]['textG'] = int(g)
+                    users[str(ctx.author.id)]['textB'] = int(b)
+                    embed = discord.Embed(
+                        title = f"Set text color to {url},{g},{b}",
+                        colour = discord.Colour.from_rgb(int(url),int(g),int(b))
+                    )
+                    json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)
+                    await ctx.send(embed=embed)
+                    
+            except:
+                await ctx.send("Something error, please check your RGB colours, must not have `,`")
 
 
 def setup(bot):

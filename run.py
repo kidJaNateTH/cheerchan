@@ -11,12 +11,12 @@ import json
 
 @client.event
 async def on_ready():
-    servers = str(len(client.guilds)) 
+    servers = str(len(client.guilds))
     await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
-    client.load_extension('cogs.avatar')
+    #client.load_extension('cogs.avatar')
     client.load_extension('cogs.brainout')
     client.load_extension('cogs.clear')
     client.load_extension('cogs.customemoji')
@@ -35,9 +35,16 @@ async def on_ready():
     client.load_extension('cogs.translate')
     client.load_extension('cogs.ytsearch')
     client.load_extension('cogs.profile')
+    client.load_extension('cogs.owner')
+    client.load_extension('cogs.premium')
+    oldserver = str(len(client.guilds))
     while True:
-        servers = str(len(client.guilds)) 
-        print(servers)
+        servers = str(len(client.guilds))
+        if not oldserver == servers:
+            print(f"Server have changed, {servers} Servers")
+            oldserver = servers
+        
+        
         await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
         await asyncio.sleep(5)
 
@@ -79,7 +86,8 @@ async def on_message(message):
             if users[str(message.author.id)]['lvl'] == 1:
                 users[str(message.author.id)]['lvl'] = 1
             else:
-                await message.channel.send(f"OwO {message.author.mention} You just advanced to level {users[str(message.author.id)]['lvl']}!")
+                print("ok")
+                #await message.channel.send(f"OwO {message.author.mention} You just advanced to level {users[str(message.author.id)]['lvl']}!")
 
 
         json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)
@@ -101,7 +109,7 @@ async def on_message(message):
                 title = message.author.mention,
                 colour = discord.Colour.dark_blue()
             )
-            embed.set_footer(icon_url=client.user.avatar_url,text=f"d!dm <@!{message.author.id}>")
+            embed.set_footer(icon_url=client.user.avatar_url,text=f"c!dm {message.author.id}")
             embed.set_thumbnail(url=message.author.avatar_url)
             embed.add_field(name=f"User mention: ",value=message.author.mention,inline=False)
             embed.add_field(name=f"Username: ",value=message.author,inline=False)

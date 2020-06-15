@@ -7,11 +7,11 @@ class customemoji(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
     @commands.command(aliases=['emo'])
-    async def emoji(self,ctx,e:str):
+    async def emojii(self,ctx,e:str):
         await ctx.message.delete()
         await ctx.send(file=discord.File(f"./emoji/{e}"))
-    @emoji.error
-    async def emoji_error(self,ctx,error):
+    @emojii.error
+    async def emojii_error(self,ctx,error):
         if(error,commands.MissingRequiredArgument):
             embed = discord.Embed(
                 title = "Emoji list",

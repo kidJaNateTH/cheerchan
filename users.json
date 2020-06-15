@@ -1,57 +1,35 @@
 {
-    "449817893442682890": {
+    "506904142116028436": {
         "coins": 0,
         "customBG": false,
-        "exp": 44,
-        "lvl": 5,
+        "exp": 1,
+        "lvl": 1,
         "premium": false,
         "textB": 255,
         "textG": 255,
         "textR": 255,
-        "username": "RandomMaerks#8088"
-    },
-    "507827170261991464": {
-        "coins": 0,
-        "customBG": false,
-        "exp": 43,
-        "lvl": 5,
-        "premium": true,
-        "textB": 255,
-        "textG": 255,
-        "textR": 255,
-        "username": "Test Week-TopFinger#9145"
+        "username": "BluffPaffoo#9793"
     },
     "546558917929598978": {
         "coins": 0,
-        "customBG": false,
-        "exp": 63,
-        "lvl": 5,
+        "customBG": "https://cdn.discordapp.com/attachments/707023440254730360/722092553251323974/CyCYOArUoAA2T6d.png",
+        "exp": 13,
+        "lvl": 3,
         "premium": true,
         "textB": 255,
         "textG": 255,
         "textR": 255,
         "username": "NateTH#0230"
     },
-    "573416406796992522": {
+    "625920968757346334": {
         "coins": 0,
         "customBG": false,
-        "exp": 43,
-        "lvl": 5,
+        "exp": 7,
+        "lvl": 3,
         "premium": true,
         "textB": 255,
         "textG": 255,
         "textR": 255,
-        "username": "Paffo#3312"
-    },
-    "508473794994896896": {
-        "coins": 0,
-        "customBG": false,
-        "exp": 43,
-        "lvl": 5,
-        "premium": true,
-        "textB": 255,
-        "textG": 255,
-        "textR": 255,
-        "username": "Too cute#2421"
+        "username": "Linh#3227"
     }
 }
