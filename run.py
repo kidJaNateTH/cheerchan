@@ -12,7 +12,12 @@ import json
 @client.event
 async def on_ready():
     servers = str(len(client.guilds))
-    await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+
+
+    #fixing bugs
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Fixing bugs | {servers} Servers"))
+
+    #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
@@ -37,6 +42,10 @@ async def on_ready():
     client.load_extension('cogs.profile')
     client.load_extension('cogs.owner')
     client.load_extension('cogs.premium')
+    client.load_extension('cogs.ticket')
+    client.load_extension('cogs.on_message')
+
+    
     oldserver = str(len(client.guilds))
     while True:
         servers = str(len(client.guilds))
@@ -44,9 +53,24 @@ async def on_ready():
             print(f"Server have changed, {servers} Servers")
             oldserver = servers
         
+
+        #Fixing bugs
+        await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Fixing bugs | {servers} Servers"))
         
-        await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+        
+        #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
         await asyncio.sleep(5)
+@client.event
+async def on_guild_join(guild):
+    print(f"Cheer Chan have joined to {guild}")
+    with open("servers.json","r",encoding="utf8") as f:
+        server = json.load(f)
+    with open("servers.json","w",encoding="utf8") as f:
+        server[str(guild.id)] = {}
+        server[str(guild.id)]['Server_name'] = str(guild.name)
+        server[str(guild.id)]['ticket'] = False
+        json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+
 
 
 @client.event

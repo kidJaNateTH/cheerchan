@@ -1,4 +1,26 @@
 {
+    "399817995314003970": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 60,
+        "lvl": 5,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "[WM] Maverick#2918"
+    },
+    "449817893442682890": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 52,
+        "lvl": 5,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "RandomMaerks#8088"
+    },
     "506904142116028436": {
         "coins": 0,
         "customBG": false,
@@ -10,16 +32,93 @@
         "textR": 255,
         "username": "BluffPaffoo#9793"
     },
-    "546558917929598978": {
+    "507827170261991464": {
         "coins": 0,
-        "customBG": "https://cdn.discordapp.com/attachments/707023440254730360/722092553251323974/CyCYOArUoAA2T6d.png",
-        "exp": 13,
-        "lvl": 3,
+        "customBG": false,
+        "exp": 31,
+        "lvl": 4,
         "premium": true,
         "textB": 255,
         "textG": 255,
         "textR": 255,
+        "username": "Test Week-TopFinger#9145"
+    },
+    "508473794994896896": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 36,
+        "lvl": 4,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Too cute#2421"
+    },
+    "517274277045600256": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 5,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "discord.js#0786"
+    },
+    "523373110448226343": {
+        "coins": 0,
+        "customBG": "https://cdn.discordapp.com/attachments/696046730159980624/722271771360755712/sketch-1591410637898.png",
+        "exp": 32,
+        "lvl": 4,
+        "premium": true,
+        "textB": 200,
+        "textG": 255,
+        "textR": 0,
+        "username": "HappyGamer3194#5653"
+    },
+    "546558917929598978": {
+        "coins": 0,
+        "customBG": "https://cdn.discordapp.com/attachments/711570460487450687/722309933231767589/bg2.png",
+        "exp": 312,
+        "lvl": 9,
+        "premium": true,
+        "textB": 255,
+        "textG": 57,
+        "textR": 14,
         "username": "NateTH#0230"
+    },
+    "591217322732158976": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Constrained - TVMH#8841"
+    },
+    "595249108671922180": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 2,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "benry the second benry be 🥖#6802"
+    },
+    "618828869444829185": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 2,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "George Pig#9954"
     },
     "625920968757346334": {
         "coins": 0,
