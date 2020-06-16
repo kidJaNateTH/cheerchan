@@ -41,6 +41,7 @@ class paypal(commands.Cog):
                                 json.dump(users,f,sort_keys=True, indent=4, ensure_ascii=False)
                                 await ctx.send("Payment Successful")
                                 await ctx.send(f"Premium activated to <@!{member.id}>")
+                                await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(f"{member.mention}({member}) has bought Cheer Chan premium!")
                         else:
                             await ctx.send("This payment has used already")
                 else:
@@ -94,7 +95,7 @@ class paypal(commands.Cog):
                         colour = discord.Color.from_rgb(255, 247, 0)
                     )
                     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/721929129112502322/crown.png")
-                    embed.add_field(name=":thinking: What can Premium do? ",value="Customize your profile! 💎 \nGet the supporter role in my server 🎉 \n[[Cheer Chan Support server]](https://discord.gg/MVwkZt7) ↤ 🎀 \n\nAnd supporting us who work hard 😊 ",inline=False)
+                    embed.add_field(name=":thinking: What can Premium do? ",value="Customize your profile! 💎 \nGet the supporter role in my server 🎉 \n[[Cheer Chan Support server]](https://discord.gg/MVwkZt7) ↤ 🎀 \nUse external emojis from other server 🍕\n\nAnd supporting us who work hard 😊 ",inline=False)
 
                     embed.add_field(name="🎨 How can I buy Premium?",value="Type `c!premium` :white_heart:\nClick at `[Click here]` :white_heart:\nExecute payment :white_heart:\nType `c!premium @you verify [PAYID] [PayerID]` :white_heart:\nIf you have any questions or problems pls [contact](https://discord.gg/MVwkZt7) us :white_heart:\nP.S. If you are afraid you can buy premium on your private server :heart:",inline=False)
                     

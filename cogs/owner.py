@@ -36,7 +36,7 @@ class owner(commands.Cog):
 
     @commands.is_owner()
     @commands.command()
-    async def jsonstatus(self,ctx,t:str):
+    async def jsonstatus(self,ctx,t:str=None):
         if t == None:
             with open('users.json', 'r',encoding='utf8') as f:
                 users = json.load(f)

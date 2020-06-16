@@ -4,7 +4,8 @@ from discord.utils import get
 from discord.ext.commands import Bot
 from discord.ext.tasks import loop
 TOKEN = 'NzExNTEwMTYyMTgzMTU5ODM4.XuN-tg.KvclgEGztUyTiZEAbBnygxhgA58'
-client = commands.Bot(command_prefix = 'c!')
+client = commands.Bot(command_prefix = "c!")
+
 import asyncio
 import json
 
@@ -15,7 +16,7 @@ async def on_ready():
 
 
     #fixing bugs
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Fixing bugs | {servers} Servers"))
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
 
     #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
     client.remove_command('help')
@@ -55,7 +56,7 @@ async def on_ready():
         
 
         #Fixing bugs
-        await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Fixing bugs | {servers} Servers"))
+        await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
         
         
         #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
