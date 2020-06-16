@@ -26,7 +26,7 @@ class newhelp(commands.Cog):
             return
         embeds = [
             Embed(title=":firecracker: Fun command!", description="`c!dice` Rolling a dice\n`c!fight` Fight with your enemy\n`c!say` Use cheer chan to say something\n`c!avatar` Show your avatar\n`c!yt` Search youtube videos\n`c!emoji` use Cheer chan emoji", color=0x115599),
-            Embed(title=":computer: Manage Server!", description="`c!create` Create the channel\n`c!clear` Clear the messages\n`c!ban` Ban...? Yes.. Ban\n`c!dm` Send direct message to someone\n`c!serverinfo` See the server info", color=0x5599ff),
+            Embed(title=":computer: Manage Server!", description="`c!create` Create the channel\n`c!clear` Clear the messages\n`c!ban` Ban...? Yes.. Ban\n`c!dm` Send direct message to someone\n`c!serverinfo` See the server info\n`c!ticket` Create a ticket in this server", color=0x5599ff),
             Embed(title=":diamonds: Minigames!", description="`c!slot` UH..Slot", color=0x191638),
             Embed(title=":jigsaw: Other commands!", description="`c!translate` Translate the languages", color=0x191638),
             
@@ -40,7 +40,7 @@ class newhelp(commands.Cog):
         ]
         secembeds = [
             Embed(title=":firecracker: Fun command!", description="`c!dice` Rolling a dice\n`c!fight` Fight with your enemy\n`c!say` Use cheer chan to say something\n`c!avatar` Show your avatar\n`c!yt` Search youtube videos\n`c!emoji` use Cheer chan emoji", color=0x115599),
-            Embed(title=":computer: Manage Server!", description="`c!create` Create the channel\n`c!clear` Clear the messages\n`c!ban` Ban...? Yes.. Ban\n`c!dm` Send direct message to someone\n`c!serverinfo` See the server info", color=0x5599ff),
+            Embed(title=":computer: Manage Server!", description="`c!create` Create the channel\n`c!clear` Clear the messages\n`c!ban` Ban...? Yes.. Ban\n`c!dm` Send direct message to someone\n`c!serverinfo` See the server info\n`c!ticket` Create a ticket in this server", color=0x5599ff),
             Embed(title=":diamonds: Minigames!", description="`c!slot` UH..Slot", color=0x191638),
             Embed(title=":crossed_swords: Levels!", description="`c!profile` See ur profile", color=0x191638),
             
