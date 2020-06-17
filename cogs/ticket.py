@@ -68,6 +68,10 @@ class TICKET(commands.Cog):
                         server[str(ctx.guild.id)] = {}
                         server[str(ctx.guild.id)]['Server_name'] = str(ctx.guild.name)
                         server[str(ctx.guild.id)]['ticket'] = False
+                        server[str(ctx.guild.id)]['snipe'] = False
+                        server[str(ctx.guild.id)]['snipe_text'] = False
+                        server[str(ctx.guild.id)]['sniper_url'] = False
+                        server[str(ctx.guild.id)]['sniper_name'] = False
                         json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
                         return await ctx.send(
                             f"This server, {ctx.guild.name} have not enabled ticket, Please contact {ctx.guild.owner}"
@@ -152,26 +156,78 @@ class TICKET(commands.Cog):
     
     
     @commands.command(aliases=['settings','option','options'])
-    async def setting(self,ctx,t:str,wat:str):
-        if not ctx.author.id == ctx.guild.owner.id:
-            return await ctx.send(f"You're not **{ctx.guild.name}** owner")
-        if t == "ticket":
-            if wat == "true" or wat == "True":
-                with open('servers.json','r',encoding='utf8') as f:
-                    server = json.load(f)
-                with open('servers.json','w',encoding='utf8') as f:
-                    server[str(ctx.guild.id)]['ticket'] = True
-                    json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
-                    await ctx.send("Enabled ticket successful")
-                    return
-            if wat == "false" or wat == "False":
-                with open('servers.json','r',encoding='utf8') as f:
-                    server = json.load(f)
-                with open('servers.json','w',encoding='utf8') as f:
-                    server[str(ctx.guild.id)]['ticket'] = False
-                    json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
-                    await ctx.send("Disabled ticket successful")
-                    return
+    async def setting(self,ctx,t:str,wat:str=None):
+        if ctx.message.author.guild_permissions.administrator:
+            if t == "ticket":
+                if wat == None:
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        #off
+                        if server[str(ctx.guild.id)]['ticket'] == True:
+                            server[str(ctx.guild.id)]['ticket'] = False
+                            json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                            await ctx.send("Disabled ticket successful")
+                            return
+                        #on
+                        if server[str(ctx.guild.id)]['ticket'] == False:
+                            server[str(ctx.guild.id)]['ticket'] = True
+                            json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                            await ctx.send("Enabled ticket successful")
+                            return
+                if wat == "true" or wat == "True" or wat == "on" :
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        server[str(ctx.guild.id)]['ticket'] = True
+                        json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        await ctx.send("Enabled ticket successful")
+                        return
+                if wat == "false" or wat == "False" or wat == "off" :
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        server[str(ctx.guild.id)]['ticket'] = False
+                        json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        await ctx.send("Disabled ticket successful")
+                        return
+            
+
+            if t == "snipe":
+                if wat == None:
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        #off
+                        if server[str(ctx.guild.id)]['snipe'] == True:
+                            server[str(ctx.guild.id)]['snipe'] = False
+                            json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                            await ctx.send("Disabled snipe successful")
+                            return
+                        #on
+                        if server[str(ctx.guild.id)]['snipe'] == False:
+                            server[str(ctx.guild.id)]['snipe'] = True
+                            json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                            await ctx.send("Enabled ticket successful")
+                            return
+                if wat == "true" or wat == "True" or wat == "on" :
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        server[str(ctx.guild.id)]['snipe'] = True
+                        json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        await ctx.send("Enabled snipe successful")
+                        return
+                if wat == "false" or wat == "False" or wat == "off" :
+                    with open('servers.json','r',encoding='utf8') as f:
+                        server = json.load(f)
+                    with open('servers.json','w',encoding='utf8') as f:
+                        server[str(ctx.guild.id)]['snipe'] = False
+                        json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        await ctx.send("Disabled snipe successful")
+                        return
+        else:
+            return await ctx.send(f"You're not have permissions to do that")
     
 
 def setup(bot):

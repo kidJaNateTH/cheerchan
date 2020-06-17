@@ -3,22 +3,62 @@ from discord.ext import commands
 from discord.utils import get
 from discord.ext.commands import Bot
 from discord.ext.tasks import loop
-TOKEN = 'NzExNTEwMTYyMTgzMTU5ODM4.XuN-tg.KvclgEGztUyTiZEAbBnygxhgA58'
-client = commands.Bot(command_prefix = "c!")
+import json
+
+with open('token.json','r') as f:
+    to = json.load(f)
+    token = to['token']
+
+TOKEN = token
+
+def get_prefix(client,message):
+    with open('servers.json','r',encoding='utf8') as f:
+        prefixes = json.load(f)
+    return prefixes[str(message.guild.id)]['prefix']
+
+client = commands.Bot(command_prefix = get_prefix)
 
 import asyncio
 import json
 
+@client.command()
+async def prefix(ctx,new):
+    if not ctx.message.author.guild_permissions.administrator:
+        return await ctx.send("You're not have permissions to do that")
+    try:
+        with open('servers.json','r',encoding='utf8') as f:
+            prefixes = json.load(f)
+        with open('servers.json','w',encoding='utf8') as f:
+            prefixes[str(ctx.guild.id)]['prefix'] = str(new)
+            json.dump(prefixes, f, sort_keys=True, indent=4, ensure_ascii=False)
+
+            await ctx.send(f"Prefix changed to {new}")
+    except:
+        with open('servers.json','r',encoding='utf8') as f:
+            prefixes = json.load(f)
+        with open('servers.json','w',encoding='utf8') as f:
+            prefixes[str(ctx.guild.id)] = {}
+            prefixes[str(ctx.guild.id)]['Server_name'] = str(ctx.guild.name)
+            prefixes[str(ctx.guild.id)]['ticket'] = False
+            prefixes[str(ctx.guild.id)]['snipe'] = False
+            prefixes[str(ctx.guild.id)]['snipe_text'] = False
+            prefixes[str(ctx.guild.id)]['sniper_url'] = False
+            prefixes[str(ctx.guild.id)]['sniper_name'] = False
+            prefixes[str(ctx.guild.id)]['prefix'] = str(new)
+            json.dump(prefixes, f, sort_keys=True, indent=4, ensure_ascii=False)
+
+            await ctx.send(f"Prefix changed to {new}")
 
 @client.event
 async def on_ready():
+    
     servers = str(len(client.guilds))
 
 
     #fixing bugs
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
+    #await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
 
-    #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+    await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
@@ -45,6 +85,8 @@ async def on_ready():
     client.load_extension('cogs.premium')
     client.load_extension('cogs.ticket')
     client.load_extension('cogs.on_message')
+    client.load_extension('cogs.snipe')
+    client.load_extension('cogs.teach')
 
     
     oldserver = str(len(client.guilds))
@@ -56,10 +98,10 @@ async def on_ready():
         
 
         #Fixing bugs
-        await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
+        #await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
         
         
-        #await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+        await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
         await asyncio.sleep(5)
 @client.event
 async def on_guild_join(guild):
@@ -70,12 +112,34 @@ async def on_guild_join(guild):
         server[str(guild.id)] = {}
         server[str(guild.id)]['Server_name'] = str(guild.name)
         server[str(guild.id)]['ticket'] = False
+        server[str(guild.id)]['snipe'] = False
+        server[str(guild.id)]['snipe_text'] = False
+        server[str(guild.id)]['sniper_url'] = False
+        server[str(guild.id)]['sniper_name'] = False
+        server[str(guild.id)]['prefix'] = "c!"
         json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
 
-
+@client.event
+async def on_guild_remove(guild):
+    with open('servers.json','r',encoding='utf8') as f:
+        pre = json.load(f)
+    pre.pop(str(guild.id))
+    with open('servers.json','w',encoding='utf8') as f:
+        json.dump(pre,f,sort_keys=True, indent=4, ensure_ascii=False)
 
 @client.event
 async def on_message(message):
+    if message.content == "<@!711510162183159838>":
+        
+        with open('servers.json','r',encoding='utf8') as f:
+            pre = json.load(f)
+            pref = pre[str(message.guild.id)]['prefix']
+            emoji=discord.utils.get(client.emojis,name="yellow_sparksidk")
+            embed=discord.Embed(
+                description = f"{emoji} Prefix in this server `{pref}`\n{emoji} Help command `{pref}help`",
+                colour = discord.Colour.green()
+            )
+            await message.channel.send(embed=embed)
     lvl = {}
     exp = {}
     if message.author.bot:

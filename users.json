@@ -10,11 +10,44 @@
         "textR": 255,
         "username": "Who am I?#3584"
     },
+    "330049770125262859": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 17,
+        "lvl": 3,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "relik#6249"
+    },
+    "337969987551494147": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 21,
+        "lvl": 4,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Indefn#1675"
+    },
+    "395526060956975104": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 5,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "2048LBB#9127"
+    },
     "399817995314003970": {
         "coins": 0,
         "customBG": false,
-        "exp": 73,
-        "lvl": 5,
+        "exp": 88,
+        "lvl": 6,
         "premium": false,
         "textB": 255,
         "textG": 255,
@@ -24,13 +57,24 @@
     "449817893442682890": {
         "coins": 0,
         "customBG": false,
-        "exp": 52,
-        "lvl": 5,
+        "exp": 294,
+        "lvl": 9,
         "premium": false,
         "textB": 255,
         "textG": 255,
         "textR": 255,
         "username": "RandomMaerks#8088"
+    },
+    "470516498050580480": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 3,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "美味的小圓#7026"
     },
     "506904142116028436": {
         "coins": 0,
@@ -46,8 +90,8 @@
     "507827170261991464": {
         "coins": 0,
         "customBG": false,
-        "exp": 36,
-        "lvl": 4,
+        "exp": 64,
+        "lvl": 5,
         "premium": true,
         "textB": 255,
         "textG": 255,
@@ -57,8 +101,8 @@
     "508473794994896896": {
         "coins": 0,
         "customBG": false,
-        "exp": 78,
-        "lvl": 6,
+        "exp": 265,
+        "lvl": 9,
         "premium": false,
         "textB": 255,
         "textG": 255,
@@ -79,7 +123,7 @@
     "523373110448226343": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/696046730159980624/722271771360755712/sketch-1591410637898.png",
-        "exp": 61,
+        "exp": 67,
         "lvl": 5,
         "premium": true,
         "textB": 200,
@@ -90,8 +134,8 @@
     "546558917929598978": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/711570460487450687/722309933231767589/bg2.png",
-        "exp": 410,
-        "lvl": 10,
+        "exp": 904,
+        "lvl": 13,
         "premium": true,
         "textB": 255,
         "textG": 57,
@@ -141,6 +185,50 @@
         "textG": 255,
         "textR": 255,
         "username": "Linh#3227"
+    },
+    "654316560105734154": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 7,
+        "lvl": 3,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Petegame Channel#7466"
+    },
+    "669155030426976276": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "YGNYT|YoshiGamingNoYT|VN#2558"
+    },
+    "698736900751622165": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 2,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Jerry Nguyễn 0403#1015"
+    },
+    "702687535503245373": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 2,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "ANIMELOLI CHANEL#6048"
     },
     "722374607314878505": {
         "coins": 0,
