@@ -1,12 +1,7 @@
 {
     "681094908097986590": {
         "server_name": "Water Motion Studio",
-        "words": {
-            "bruh": {
-                "answer": "bruh",
-                "teacher": "NateTH#0230"
-            }
-        }
+        "words": {}
     },
     "705418568661205102": {
         "server_name": "bottest",
@@ -20,11 +15,7 @@
     "706672760637620357": {
         "server_name": "Brain Out+ Challenges",
         "words": {
-            "Hi": {
-                "answer": "",
-                "teacher": ""
-            },
-            "t": {}
+            
         }
     },
     "719837288670167100": {
@@ -37,6 +28,10 @@
             "c!teach": {
                 "answer": "",
                 "teacher": "Too cute#2421"
+            },
+            "yes": {
+                "answer": "yes",
+                "teacher": "NateTH#0230"
             },
             "yo": {
                 "answer": "hello",

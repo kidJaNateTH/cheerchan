@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import json
+import asyncio
+import random
 
 
 class TEACH(commands.Cog):
@@ -96,6 +98,11 @@ class TEACH(commands.Cog):
                     if message.content != chat[str(message.guild.id)]['words'][message.content]:
                         try:
                             answer = chat[str(message.guild.id)]['words'][message.content]['answer']
+                            await message.channel.trigger_typing()
+
+                            typing_time = random.randint(1,2)
+
+                            await asyncio.sleep(typing_time)
                             await message.channel.send(answer)
                         except:
                             return

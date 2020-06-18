@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.utils import get
+import json
 
 
 class say(commands.Cog):
@@ -35,12 +36,15 @@ class say(commands.Cog):
     @say.error
     async def say_error(self,ctx,error):
         if isinstance(error, commands.MissingRequiredArgument):
+            with open('servers.json','r',encoding='utf8') as f:
+                re = json.load(f)
+                prefix = re[str(ctx.guild.id)]['prefix']
             embed = discord.Embed(
                 title = "ERROR",
                 color = discord.Colour.red()
             )
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/711570460487450687/720820208545169438/cheerchan_sad.png")
-            embed.add_field(name="Hmm.. Something went wrong? Please try again \nc!say <str>",value="_ _",inline=True)
+            embed.add_field(name=f"Hmm.. Something went wrong? Please try again \n{prefix}say <str>",value="_ _",inline=True)
             msg = await ctx.send(embed=embed)
             await msg.add_reaction("😳")
 

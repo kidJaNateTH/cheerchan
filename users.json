@@ -24,13 +24,24 @@
     "337969987551494147": {
         "coins": 0,
         "customBG": false,
-        "exp": 21,
+        "exp": 26,
         "lvl": 4,
         "premium": false,
         "textB": 255,
         "textG": 255,
         "textR": 255,
         "username": "Indefn#1675"
+    },
+    "338413405805346816": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Rafiky#5693"
     },
     "395526060956975104": {
         "coins": 0,
@@ -46,7 +57,7 @@
     "399817995314003970": {
         "coins": 0,
         "customBG": false,
-        "exp": 88,
+        "exp": 91,
         "lvl": 6,
         "premium": false,
         "textB": 255,
@@ -54,11 +65,22 @@
         "textR": 255,
         "username": "[WM] Maverick#2918"
     },
+    "410682396627828749": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 6,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "๖̶ζ͜͡WyzeerMC♡#5290"
+    },
     "449817893442682890": {
         "coins": 0,
         "customBG": false,
-        "exp": 294,
-        "lvl": 9,
+        "exp": 387,
+        "lvl": 10,
         "premium": false,
         "textB": 255,
         "textG": 255,
@@ -90,7 +112,7 @@
     "507827170261991464": {
         "coins": 0,
         "customBG": false,
-        "exp": 64,
+        "exp": 71,
         "lvl": 5,
         "premium": true,
         "textB": 255,
@@ -101,9 +123,9 @@
     "508473794994896896": {
         "coins": 0,
         "customBG": false,
-        "exp": 265,
-        "lvl": 9,
-        "premium": false,
+        "exp": 380,
+        "lvl": 10,
+        "premium": true,
         "textB": 255,
         "textG": 255,
         "textR": 255,
@@ -114,7 +136,7 @@
         "customBG": false,
         "exp": 20,
         "lvl": 4,
-        "premium": false,
+        "premium": true,
         "textB": 255,
         "textG": 255,
         "textR": 255,
@@ -123,7 +145,7 @@
     "523373110448226343": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/696046730159980624/722271771360755712/sketch-1591410637898.png",
-        "exp": 67,
+        "exp": 68,
         "lvl": 5,
         "premium": true,
         "textB": 200,
@@ -134,8 +156,8 @@
     "546558917929598978": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/711570460487450687/722309933231767589/bg2.png",
-        "exp": 904,
-        "lvl": 13,
+        "exp": 1143,
+        "lvl": 15,
         "premium": true,
         "textB": 255,
         "textG": 57,
@@ -145,8 +167,8 @@
     "591217322732158976": {
         "coins": 0,
         "customBG": false,
-        "exp": 1,
-        "lvl": 1,
+        "exp": 10,
+        "lvl": 3,
         "premium": false,
         "textB": 255,
         "textG": 255,

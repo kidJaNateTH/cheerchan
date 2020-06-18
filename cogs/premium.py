@@ -41,7 +41,14 @@ class paypal(commands.Cog):
                                 json.dump(users,f,sort_keys=True, indent=4, ensure_ascii=False)
                                 await ctx.send("Payment Successful")
                                 await ctx.send(f"Premium activated to <@!{member.id}>")
-                                await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(f"{member.mention}({member}) has bought Cheer Chan premium!")
+
+                                embed = discord.Embed(
+                                    title = f"{member.name} has bought Cheer Chan premium!",
+                                    description = f"With paypal for 1 USD",
+                                    colour = discord.Colour.gold()
+                                )
+                                embed.set_thumbnail(url=member.avatar_url)
+                                await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(embed=embed)
                         else:
                             await ctx.send("This payment has used already")
                 else:

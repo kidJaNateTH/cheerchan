@@ -1,4 +1,13 @@
 {
+    "439866052684283905": {
+        "Server_name": "Discord Boats",
+        "prefix": "cc!",
+        "snipe": false,
+        "snipe_text": false,
+        "sniper_name": false,
+        "sniper_url": false,
+        "ticket": false
+    },
     "556473015521771520": {
         "Server_name": "冬 (FUYU Studio)",
         "prefix": "c!",
@@ -8,22 +17,13 @@
         "sniper_url": "https://cdn.discordapp.com/avatars/546558917929598978/7c330ad61c94753258fbe6887dce3cdc.webp?size=1024",
         "ticket": true
     },
-    "665520742208897035": {
-        "Server_name": "謎 (NAZO STUDIO)",
-        "prefix": "c!",
-        "snipe": false,
-        "snipe_text": false,
-        "sniper_name": false,
-        "sniper_url": false,
-        "ticket": true
-    },
     "681094908097986590": {
         "Server_name": "Water Motion Studio",
         "prefix": "c!",
         "snipe": true,
-        "snipe_text": "c!emoji thonk",
-        "sniper_name": "NateTH#0230",
-        "sniper_url": "https://cdn.discordapp.com/avatars/546558917929598978/7c330ad61c94753258fbe6887dce3cdc.webp?size=1024",
+        "snipe_text": "die",
+        "sniper_name": "RandomMaerks#8088",
+        "sniper_url": "https://cdn.discordapp.com/avatars/449817893442682890/32d2056fdf7cd9ae32846bf62879bebe.webp?size=1024",
         "ticket": true
     },
     "690410179157557298": {
@@ -65,10 +65,19 @@
     "719837288670167100": {
         "Server_name": "Cheer Chan Support",
         "prefix": "c!",
-        "snipe": true,
-        "snipe_text": "Succ bot",
-        "sniper_name": "Too cute#2421",
-        "sniper_url": "https://cdn.discordapp.com/avatars/508473794994896896/93803f11328a108106b5af813fae3ee3.webp?size=1024",
-        "ticket": true
+        "snipe": false,
+        "snipe_text": false,
+        "sniper_name": false,
+        "sniper_url": false,
+        "ticket": false
+    },
+    "721920239113338931": {
+        "Server_name": "Cheer Chan test server",
+        "prefix": "c!",
+        "snipe": false,
+        "snipe_text": false,
+        "sniper_name": false,
+        "sniper_url": false,
+        "ticket": false
     }
 }

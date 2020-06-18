@@ -21,6 +21,14 @@ class owner(commands.Cog):
                 if amout == 1:
                     users[str(member.id)]['premium'] = True
                     await ctx.send(f"I give premium to {member.name}")
+
+                    embed = discord.Embed(
+                        title = f"{member.name} has bought Cheer Chan premium!",
+                        description = f"With <@!{ctx.author.id}> giveaways",
+                        colour = discord.Colour.gold()
+                    )
+                    embed.set_thumbnail(url=member.avatar_url)
+                    await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(embed=embed)
                 if amout == 0:
                     users[str(member.id)]['premium'] = False
                     await ctx.send(f"I disabled premium to {member.name}")

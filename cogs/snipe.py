@@ -10,6 +10,8 @@ class SNIPE(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_delete(self,message):
+        if message.author.bot or str(message.content).startswith("c!"):
+            return
         try:
             with open('servers.json','r',encoding='utf8') as f:
                 server = json.load(f)

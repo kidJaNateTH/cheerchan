@@ -25,7 +25,8 @@ class ytsearch(commands.Cog):
             title = "Youtube",
             colour = discord.Colour.red()
         )
-        embed.add_field(name=f"{search}",value=f"[[Watch this video]]({result})",inline=True)
+        embed.add_field(name=f"{search}",value=f"[[Watch this video!]]({result})",inline=True)
+        embed.set_footer(text="This is your video like?")
         embed.set_thumbnail(url=videopng)
         msg = await ctx.send(embed=embed)
         await msg.add_reaction('🥰')

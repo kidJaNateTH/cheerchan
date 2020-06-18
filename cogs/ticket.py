@@ -8,6 +8,9 @@ class TICKET(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
+    
+
+
     @commands.command(aliases=['tic'])
     async def ticket(self,ctx,t:str=None):
         if t == None:
@@ -56,9 +59,16 @@ class TICKET(commands.Cog):
                             description = f"<@!{ctx.author.id}> Let's ask the questions about **{ctx.guild.name}** server!\n\n\nc!ticket start [start a ticket]\nc!ticket end [end a ticket]\nc!ticket delete [delete a ticket]\n",
                             colour = discord.Color.green()
                         )
-                        await tic.send(embed=embed)
+                        
+                        cross_emoji = "❎"
                         name = str(ctx.author.name).lower()
                         await ctx.send(f"Create ticket-{name} successful <#{tic.id}>")
+                        start_msg = await tic.send(embed=embed)
+                        await start_msg.add_reaction(cross_emoji)
+
+                        res = await self.bot.wait_for_reaction(emoji=cross_emoji, message=start_msg, user=ctx.message.author)
+                        if res:
+                            print("it's work")
                     else:
                         return await ctx.send(
                             f"This server, {ctx.guild.name} have not enabled ticket, Please contect {ctx.guild.owner}"
@@ -72,6 +82,7 @@ class TICKET(commands.Cog):
                         server[str(ctx.guild.id)]['snipe_text'] = False
                         server[str(ctx.guild.id)]['sniper_url'] = False
                         server[str(ctx.guild.id)]['sniper_name'] = False
+                        server[str(ctx.guild.id)]['prefix'] = "c!"
                         json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
                         return await ctx.send(
                             f"This server, {ctx.guild.name} have not enabled ticket, Please contact {ctx.guild.owner}"
@@ -130,7 +141,6 @@ class TICKET(commands.Cog):
                 )
                 await ctx.send(embed=embed)
     
-
 
 
     """ old
@@ -228,6 +238,19 @@ class TICKET(commands.Cog):
                         return
         else:
             return await ctx.send(f"You're not have permissions to do that")
+
+    @setting.error
+    async def setting_error(self,ctx,error):
+        if isinstance(error,commands.MissingRequiredArgument):
+            embed =discord.Embed(
+                title = "Missing Required Argument",
+                colour = discord.Colour.red()
+
+            )
+            embed.add_field(name="ticket",value="Turn on-off ticket in this server",inline=False)
+            embed.add_field(name="snipe",value="Turn on-off snipe in this server",inline=False)
+            await ctx.send(embed=embed)
+    
     
 
 def setup(bot):

@@ -87,6 +87,9 @@ async def on_ready():
     client.load_extension('cogs.on_message')
     client.load_extension('cogs.snipe')
     client.load_extension('cogs.teach')
+    client.load_extension('cogs.log')
+    client.load_extension('cogs.welcome')
+    client.load_extension('cogs.mute')
 
     
     oldserver = str(len(client.guilds))
@@ -118,6 +121,7 @@ async def on_guild_join(guild):
         server[str(guild.id)]['sniper_name'] = False
         server[str(guild.id)]['prefix'] = "c!"
         json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
+    
 
 @client.event
 async def on_guild_remove(guild):
