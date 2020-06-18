@@ -90,6 +90,8 @@ async def on_ready():
     client.load_extension('cogs.log')
     client.load_extension('cogs.welcome')
     client.load_extension('cogs.mute')
+    client.load_extension('cogs.warn')
+    client.load_extension('cogs.promote')
 
     
     oldserver = str(len(client.guilds))
@@ -120,6 +122,8 @@ async def on_guild_join(guild):
         server[str(guild.id)]['sniper_url'] = False
         server[str(guild.id)]['sniper_name'] = False
         server[str(guild.id)]['prefix'] = "c!"
+        server[str(guild.id)]['warn'] = {}
+        server[str(guild.id)]['warn_count'] = False
         json.dump(server, f, sort_keys=True, indent=4, ensure_ascii=False)
     
 

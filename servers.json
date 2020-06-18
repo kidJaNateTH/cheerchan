@@ -6,7 +6,9 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": false
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     },
     "556473015521771520": {
         "Server_name": "冬 (FUYU Studio)",
@@ -15,7 +17,9 @@
         "snipe_text": "snipe me",
         "sniper_name": "NateTH#0230",
         "sniper_url": "https://cdn.discordapp.com/avatars/546558917929598978/7c330ad61c94753258fbe6887dce3cdc.webp?size=1024",
-        "ticket": true
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     },
     "681094908097986590": {
         "Server_name": "Water Motion Studio",
@@ -24,7 +28,14 @@
         "snipe_text": "die",
         "sniper_name": "RandomMaerks#8088",
         "sniper_url": "https://cdn.discordapp.com/avatars/449817893442682890/32d2056fdf7cd9ae32846bf62879bebe.webp?size=1024",
-        "ticket": true
+        "ticket": true,
+        "warn": {
+            "546558917929598978": {
+                "count": 0,
+                "name": "NateTH"
+            }
+        },
+        "warn_count": false
     },
     "690410179157557298": {
         "Server_name": "OSU! FanGroup",
@@ -33,7 +44,9 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": true
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     },
     "703548288099549275": {
         "Server_name": "ANIMELOLI CHANEL x1",
@@ -42,7 +55,9 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": true
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     },
     "705418568661205102": {
         "Server_name": "bottest",
@@ -51,7 +66,18 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": false
+        "ticket": true,
+        "warn": {
+            "517274277045600256": {
+                "count": 1,
+                "name": "discord.js"
+            },
+            "546558917929598978": {
+                "count": 2,
+                "name": "NateTH"
+            }
+        },
+        "warn_count": false
     },
     "706672760637620357": {
         "Server_name": "Brain Out+ Challenges",
@@ -60,7 +86,9 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": true
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     },
     "719837288670167100": {
         "Server_name": "Cheer Chan Support",
@@ -69,7 +97,22 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": false
+        "ticket": true,
+        "warn": {
+            "507827170261991464": {
+                "count": 3,
+                "name": "Test Week-TopFinger"
+            },
+            "517274277045600256": {
+                "count": 0,
+                "name": "discord.js"
+            },
+            "546558917929598978": {
+                "count": 0,
+                "name": "NateTH"
+            }
+        },
+        "warn_count": false
     },
     "721920239113338931": {
         "Server_name": "Cheer Chan test server",
@@ -78,6 +121,19 @@
         "snipe_text": false,
         "sniper_name": false,
         "sniper_url": false,
-        "ticket": false
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
+    },
+    "706700216455135316": {
+        "Server_name": "Close to the sun",
+        "prefix": "c!",
+        "snipe": false,
+        "snipe_text": false,
+        "sniper_name": false,
+        "sniper_url": false,
+        "ticket": true,
+        "warn": {},
+        "warn_count": false
     }
 }

@@ -7,15 +7,16 @@ class MUTE(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
-
     @commands.has_permissions(administrator=True)
     @commands.command()
     async def mute(self,ctx,member:discord.Member):
         try:
             try:
+                print(f"{ctx.author.name} mute in way 1")
                 if ctx.guild.id == 719837288670167100:
                     muted = discord.utils.get(ctx.message.author.guild.roles,name="mute")
                     await member.add_roles(muted)
+                    channel = ctx.guild.text_channels
 
                     channels = 0
 
@@ -29,14 +30,20 @@ class MUTE(commands.Cog):
                     )
                     await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(embed=embed)
                     return
+                channel = ctx.guild.text_channels
                 muted = discord.utils.get(ctx.message.author.guild.roles,name="mute")
                 await member.add_roles(muted)
+                channels = 0
+
+                for i in channel:
+                    channels += 1
                 embed = discord.Embed(
                     title = f"PEW, Successfully muted {member.name}",
                     colour = discord.Colour.red()
                 )
                 await ctx.send(embed=embed)
             except:
+                print("{ctx.author.name} mute in way 2")
                 if ctx.guild.id == 719837288670167100:
                     muted = await ctx.guild.create_role(name="mute")
                     channel = ctx.guild.text_channels

@@ -1,4 +1,26 @@
 {
+    "189759562910400512": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Brain#0001"
+    },
+    "190590364871032834": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Builderb#0001"
+    },
     "286918791655456768": {
         "coins": 0,
         "customBG": false,
@@ -111,9 +133,9 @@
     },
     "507827170261991464": {
         "coins": 0,
-        "customBG": false,
-        "exp": 71,
-        "lvl": 5,
+        "customBG": "https://cdn.discordapp.com/attachments/636530126536048641/723155736791744522/bg2.png",
+        "exp": 141,
+        "lvl": 7,
         "premium": true,
         "textB": 255,
         "textG": 255,
@@ -123,7 +145,7 @@
     "508473794994896896": {
         "coins": 0,
         "customBG": false,
-        "exp": 380,
+        "exp": 381,
         "lvl": 10,
         "premium": true,
         "textB": 255,
@@ -155,19 +177,19 @@
     },
     "546558917929598978": {
         "coins": 0,
-        "customBG": "https://cdn.discordapp.com/attachments/711570460487450687/722309933231767589/bg2.png",
-        "exp": 1143,
+        "customBG": "https://cdn.discordapp.com/attachments/636530126536048641/723155736791744522/bg2.png",
+        "exp": 1301,
         "lvl": 15,
         "premium": true,
         "textB": 255,
-        "textG": 57,
-        "textR": 14,
+        "textG": 255,
+        "textR": 255,
         "username": "NateTH#0230"
     },
     "591217322732158976": {
         "coins": 0,
         "customBG": false,
-        "exp": 10,
+        "exp": 16,
         "lvl": 3,
         "premium": false,
         "textB": 255,
@@ -219,6 +241,28 @@
         "textR": 255,
         "username": "Petegame Channel#7466"
     },
+    "663708087995072512": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 14,
+        "lvl": 3,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Discord_color#5999"
+    },
+    "664779783015628878": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 2,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "NZ|Jest#9205"
+    },
     "669155030426976276": {
         "coins": 0,
         "customBG": false,
@@ -229,6 +273,17 @@
         "textG": 255,
         "textR": 255,
         "username": "YGNYT|YoshiGamingNoYT|VN#2558"
+    },
+    "694567089511465021": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Yan#0007"
     },
     "698736900751622165": {
         "coins": 0,
@@ -251,6 +306,17 @@
         "textG": 255,
         "textR": 255,
         "username": "ANIMELOLI CHANEL#6048"
+    },
+    "707651268293951492": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Plankton#3453"
     },
     "722374607314878505": {
         "coins": 0,

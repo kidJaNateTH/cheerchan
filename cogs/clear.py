@@ -37,6 +37,8 @@ class clear(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def ban(self,ctx, member: discord.Member, *, reason=None):
+        if member.id == ctx.author.id or member.bot:
+            return await ctx.send("You can't do that!")
         if(member.id == 711510162183159838):
             return await ctx.send("Uh.. Thanks, But i don't need to ban myself")
         await member.ban(reason=reason)
@@ -59,6 +61,8 @@ class clear(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def kick(self,ctx, member: discord.Member, *, reason=None):
+        if member.id == ctx.author.id or member.bot:
+            return await ctx.send("You can't do that!")
         if(member.id == 711510162183159838):
             return await ctx.send("Uh.. Thanks, But i don't need to kick myself")
         await member.kick(reason=reason)
