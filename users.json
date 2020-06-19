@@ -1,4 +1,26 @@
 {
+    "183790855813988353": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 3,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "Ittim#0092"
+    },
+    "188418994527535104": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 4,
+        "lvl": 2,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "R C N#0001"
+    },
     "189759562910400512": {
         "coins": 0,
         "customBG": false,
@@ -101,7 +123,7 @@
     "449817893442682890": {
         "coins": 0,
         "customBG": false,
-        "exp": 387,
+        "exp": 389,
         "lvl": 10,
         "premium": false,
         "textB": 255,
@@ -134,7 +156,7 @@
     "507827170261991464": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/636530126536048641/723155736791744522/bg2.png",
-        "exp": 141,
+        "exp": 145,
         "lvl": 7,
         "premium": true,
         "textB": 255,
@@ -145,7 +167,7 @@
     "508473794994896896": {
         "coins": 0,
         "customBG": false,
-        "exp": 381,
+        "exp": 460,
         "lvl": 10,
         "premium": true,
         "textB": 255,
@@ -178,8 +200,8 @@
     "546558917929598978": {
         "coins": 0,
         "customBG": "https://cdn.discordapp.com/attachments/636530126536048641/723155736791744522/bg2.png",
-        "exp": 1301,
-        "lvl": 15,
+        "exp": 1451,
+        "lvl": 16,
         "premium": true,
         "textB": 255,
         "textG": 255,
@@ -273,6 +295,17 @@
         "textG": 255,
         "textR": 255,
         "username": "YGNYT|YoshiGamingNoYT|VN#2558"
+    },
+    "691865865808773141": {
+        "coins": 0,
+        "customBG": false,
+        "exp": 1,
+        "lvl": 1,
+        "premium": false,
+        "textB": 255,
+        "textG": 255,
+        "textR": 255,
+        "username": "×\"[Narukami]\"×#5444"
     },
     "694567089511465021": {
         "coins": 0,

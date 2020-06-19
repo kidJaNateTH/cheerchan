@@ -65,6 +65,26 @@ class TEACH(commands.Cog):
                     await ctx.send(embed=embed)
             except:
                 return
+
+        if way == "remove":
+            try:
+                with open('teached.json','r',encoding='utf8') as f:
+                    chat = json.load(f)
+
+                with open('teached.json','w',encoding='utf8') as f:
+                    try:
+                        chat[str(ctx.guild.id)]['words'].pop(str(ff))
+                    except:
+                        return await ctx.send(f"{ff} Not found")
+                    json.dump(chat, f, sort_keys=True, indent=4, ensure_ascii=False)
+                    embed = discord.Embed(
+                        title = f"Successfully removed {ff} in **{ctx.guild.name}**",
+                        colour = discord.Colour.orange()
+                    )
+                    await ctx.send(embed=embed)
+            except:
+                return
+
         if way == "list":
             embed = discord.Embed(
                 title  = f"All knowledges in **{ctx.guild.name}**",

@@ -90,32 +90,8 @@
         "warn": {},
         "warn_count": false
     },
-    "719837288670167100": {
-        "Server_name": "Cheer Chan Support",
-        "prefix": "c!",
-        "snipe": false,
-        "snipe_text": false,
-        "sniper_name": false,
-        "sniper_url": false,
-        "ticket": true,
-        "warn": {
-            "507827170261991464": {
-                "count": 3,
-                "name": "Test Week-TopFinger"
-            },
-            "517274277045600256": {
-                "count": 0,
-                "name": "discord.js"
-            },
-            "546558917929598978": {
-                "count": 0,
-                "name": "NateTH"
-            }
-        },
-        "warn_count": false
-    },
-    "721920239113338931": {
-        "Server_name": "Cheer Chan test server",
+    "706700216455135316": {
+        "Server_name": "Close to the sun",
         "prefix": "c!",
         "snipe": false,
         "snipe_text": false,
@@ -125,8 +101,21 @@
         "warn": {},
         "warn_count": false
     },
-    "706700216455135316": {
-        "Server_name": "Close to the sun",
+    "719837288670167100": {
+        "Server_name": "Cheer Chan Support",
+        "prefix": "c!",
+        "snipe": false,
+        "snipe_text": false,
+        "sniper_name": false,
+        "sniper_url": false,
+        "ticket": true,
+        "warn": {
+
+        },
+        "warn_count": false
+    },
+    "721920239113338931": {
+        "Server_name": "Cheer Chan test server",
         "prefix": "c!",
         "snipe": false,
         "snipe_text": false,

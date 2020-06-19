@@ -14,8 +14,15 @@
     },
     "706672760637620357": {
         "server_name": "Brain Out+ Challenges",
+        "words": {}
+    },
+    "706700216455135316": {
+        "server_name": "Close to the sun",
         "words": {
-            
+            "hello": {
+                "answer": "hi",
+                "teacher": "NateTH#0230"
+            }
         }
     },
     "719837288670167100": {

@@ -34,7 +34,11 @@ class newhelp(commands.Cog):
             prefix = server[str(ctx.guild.id)]['prefix']
             embeds = [
                 Embed(title=":firecracker: Fun command!", description=f"`{prefix}dice` Rolling a dice\n`{prefix}fight` Fight with your enemy\n`{prefix}say` Use cheer chan to say something\n`{prefix}avatar` Show your avatar\n`{prefix}yt` Search youtube videos\n`{prefix}emoji` use Cheer chan emoji\n`{prefix}teach` Teach Cheer Chan", color=0x115599),
-                Embed(title=":computer: Manage Server!", description=f"`{prefix}create` Create the channel\n`{prefix}clear` Clear the messages\n`{prefix}ban` Ban...? Yes.. Ban\n`{prefix}dm` Send direct message to someone\n`{prefix}serverinfo` See the server info\n`{prefix}ticket` Create a ticket in this server\n`{prefix}snipe` See the deleted messages in the server\n`{prefix}prefix` Change Cheer Chan's prefix\n`{prefix}setting` Settings the server\n`{prefix}mute` Mute someone\n`{prefix}warn` Warn someone\n`{prefix}promote` Promote your servers!", color=0x5599ff),
+                Embed(title=":computer: Manage Server!", description=f"`{prefix}create` Create the channel\n`{prefix}clear` Clear the messages\n`{prefix}ban` Ban...? Yes.. Ban\n`{prefix}dm` Send direct message to someone\n`{prefix}serverinfo` See the server info\n`{prefix}ticket` Create a ticket in this server\n`{prefix}snipe` See the deleted messages in the server\n`{prefix}prefix` Change Cheer Chan's prefix\n`{prefix}setting` Settings the server\n`{prefix}mute` Mute someone\n`{prefix}unmute` Unmute someone\n`{prefix}warn` Warn someone\n`{prefix}promote` Promote your servers!", color=0x5599ff),
+                
+                Embed(title=":gear: Server Settings!", description=f"`{prefix}serverinfo` See the server info\n`{prefix}prefix` Change Cheer Chan's prefix\n`{prefix}setting` Settings the server", color=0x5599ff), 
+                
+                
                 Embed(title=":diamonds: Minigames!", description=f"`{prefix}slot` UH..Slot", color=0x191638),
                 Embed(title=":jigsaw: Other commands!", description=f"`{prefix}translate` Translate the languages", color=0x191638),
                 
@@ -48,7 +52,10 @@ class newhelp(commands.Cog):
             ]
             secembeds = [
                 Embed(title=":firecracker: Fun command!", description=f"`{prefix}dice` Rolling a dice\n`{prefix}fight` Fight with your enemy\n`{prefix}say` Use cheer chan to say something\n`{prefix}avatar` Show your avatar\n`{prefix}yt` Search youtube videos\n`{prefix}emoji` use Cheer chan emoji\n`{prefix}teach` Teach Cheer Chan", color=0x115599),
-                Embed(title=":computer: Manage Server!", description=f"`{prefix}create` Create the channel\n`{prefix}clear` Clear the messages\n`{prefix}ban` Ban...? Yes.. Ban\n`{prefix}dm` Send direct message to someone\n`{prefix}serverinfo` See the server info\n`{prefix}ticket` Create a ticket in this server\n`{prefix}snipe` See the deleted messages in the server\n`{prefix}prefix` Change Cheer Chan's prefix\n`{prefix}setting` Settings the server\n`{prefix}mute` Mute someone\n`{prefix}warn` Warn someone\n`{prefix}promote` Promote your servers!", color=0x5599ff),
+                Embed(title=":computer: Manage Server!", description=f"`{prefix}create` Create the channel\n`{prefix}clear` Clear the messages\n`{prefix}ban` Ban...? Yes.. Ban\n`{prefix}dm` Send direct message to someone\n`{prefix}ticket` Create a ticket in this server\n`{prefix}snipe` See the deleted messages in the server\n`{prefix}mute` Mute someone\n`{prefix}unmute` Unmute someone\n`{prefix}warn` Warn someone\n`{prefix}promote` Promote your servers!", color=0x5599ff),
+                
+                Embed(title=":gear: Server Settings!", description=f"`{prefix}serverinfo` See the server info\n`{prefix}prefix` Change Cheer Chan's prefix\n`{prefix}setting` Settings the server", color=0x5599ff), 
+
                 Embed(title=":diamonds: Minigames!", description=f"`{prefix}slot` UH..Slot", color=0x191638),
                 Embed(title=":crossed_swords: Levels!", description=f"`{prefix}profile` See ur profile", color=0x191638),
                 

@@ -13,23 +13,6 @@ class MUTE(commands.Cog):
         try:
             try:
                 print(f"{ctx.author.name} mute in way 1")
-                if ctx.guild.id == 719837288670167100:
-                    muted = discord.utils.get(ctx.message.author.guild.roles,name="mute")
-                    await member.add_roles(muted)
-                    channel = ctx.guild.text_channels
-
-                    channels = 0
-
-                    for i in channel:
-                        channels += 1
-
-                    embed = discord.Embed(
-                        title = f"PEW, Successfully muted {member.name}",
-                        colour = discord.Colour.red(),
-                        description = f"{channels} Channels"
-                    )
-                    await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(embed=embed)
-                    return
                 channel = ctx.guild.text_channels
                 muted = discord.utils.get(ctx.message.author.guild.roles,name="mute")
                 await member.add_roles(muted)
@@ -39,40 +22,27 @@ class MUTE(commands.Cog):
                     channels += 1
                 embed = discord.Embed(
                     title = f"PEW, Successfully muted {member.name}",
+                    description = f"{channels} Channels",
                     colour = discord.Colour.red()
                 )
                 await ctx.send(embed=embed)
             except:
                 print("{ctx.author.name} mute in way 2")
-                if ctx.guild.id == 719837288670167100:
-                    muted = await ctx.guild.create_role(name="mute")
-                    channel = ctx.guild.text_channels
-
-                    channels = 0
-
-                    for i in channel:
-                        channels += 1
-                        await i.set_permissions(muted, send_messages=False)
-                    await member.add_roles(muted)
-                    embed = discord.Embed(
-                        title = f"PEW, Successfully muted {member.name}",
-                        colour = discord.Colour.red(),
-                        description = f"{channels} Channels"
-                    )
-                    await self.bot.get_guild(719837288670167100).get_channel(721257084640952351).send(embed=embed)
-                    return
                 muted = await ctx.guild.create_role(name="mute")
                 channel = ctx.guild.text_channels
+                channels = 0
                 for i in channel:
+                    channels += 1
                     await i.set_permissions(muted, send_messages=False)
                 await member.add_roles(muted)
                 embed = discord.Embed(
                     title = f"PEW, Successfully muted {member.name}",
+                    description = f"{channels} Channels",
                     colour = discord.Colour.red()
                 )
                 await ctx.send(embed=embed)
         except:
-            return await ctx.send("I think i don't have permissions to do that")
+            return
 
     @mute.error
     async def mute_error(self,ctx,error):
@@ -96,7 +66,27 @@ class MUTE(commands.Cog):
             embed.add_field(name=f"Hmm.. Something went wrong? Please try again \n{prefix}mute <user>",value="_ _",inline=True)
             msg = await ctx.send(embed=embed)
             await msg.add_reaction("😳")
-        
+
+
+    @commands.has_permissions(administrator=True)
+    @commands.command()
+    async def unmute(self,ctx,member:discord.Member):
+        try:                
+            print(f"{ctx.author.name} unmute in way 1")
+            channel = ctx.guild.text_channels
+            muted = discord.utils.get(ctx.message.author.guild.roles,name="mute")
+            await member.remove_roles(muted)
+            channels = 0
+
+            for i in channel:
+                channels += 1
+            embed = discord.Embed(
+                title = f"OwO, Successfully unmuted {member.name}",
+                colour = discord.Colour.green()
+            )
+            await ctx.send(embed=embed)
+        except:
+            await ctx.send("Something went wrong")
         
 
 

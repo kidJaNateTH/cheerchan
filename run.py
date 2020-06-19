@@ -4,6 +4,7 @@ from discord.utils import get
 from discord.ext.commands import Bot
 from discord.ext.tasks import loop
 import json
+from langdetect import detect
 
 with open('token.json','r') as f:
     to = json.load(f)
@@ -53,12 +54,16 @@ async def prefix(ctx,new):
 async def on_ready():
     
     servers = str(len(client.guilds))
+    members = 0
+    for guild in client.guilds:
+        for member in guild.members:
+            members += 1
 
 
     #fixing bugs
     #await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
 
-    await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+    await client.change_presence(activity=discord.Streaming(name=f"{servers} Servers | {members} Members", url="https://www.twitch.tv/kidjanateth"))
     client.remove_command('help')
     print(f'Logged in as: {client.user.name}')
     print(f'With ID: {client.user.id}')
@@ -92,6 +97,7 @@ async def on_ready():
     client.load_extension('cogs.mute')
     client.load_extension('cogs.warn')
     client.load_extension('cogs.promote')
+    client.load_extension('cogs.bad_word')
 
     
     oldserver = str(len(client.guilds))
@@ -100,17 +106,27 @@ async def on_ready():
         if not oldserver == servers:
             print(f"Server have changed, {servers} Servers")
             oldserver = servers
+
+        members = 0
+        for guild in client.guilds:
+            for member in guild.members:
+                members += 1
         
 
         #Fixing bugs
         #await client.change_presence(status=discord.Status.idle, activity=discord.Game(name=f"Adding Features | {servers} Servers"))
         
         
-        await client.change_presence(activity=discord.Streaming(name=f"c!help | {servers} Servers", url="https://www.twitch.tv/kidjanateth"))
+        await client.change_presence(activity=discord.Streaming(name=f"{servers} Servers | {members} Members", url="https://www.twitch.tv/kidjanateth"))
         await asyncio.sleep(5)
 @client.event
 async def on_guild_join(guild):
     print(f"Cheer Chan have joined to {guild}")
+    with open("badword.json","r",encoding="utf8") as f:
+        bad = json.load(f)
+    with open("badword.json","w",encoding="utf8") as f:
+        bad[str(guild.id)]['list'] = {}
+        json.dump(bad, f, sort_keys=True, indent=4, ensure_ascii=False)
     with open("servers.json","r",encoding="utf8") as f:
         server = json.load(f)
     with open("servers.json","w",encoding="utf8") as f:

@@ -33,12 +33,13 @@ class WARN(commands.Cog):
                 print("0")
                 w[str(ctx.guild.id)]['warn'][str(member.id)]['count'] = 0
             json.dump(w, f, sort_keys=True, indent=4, ensure_ascii=False)
+            warning = count + 1
             embed = discord.Embed(
                 title = f"OOF, {member} has been warned",
                 description = f"{reason}",
                 colour = discord.Colour.red()
             )
-            embed.add_field(name=f"{count} Warning(s)",value="_ _",inline=False)
+            embed.add_field(name=f"{warning} Warning(s)",value="_ _",inline=False)
             embed.set_footer(text=f"Warned by {ctx.author.name}",icon_url=ctx.author.avatar_url)
             embed.set_thumbnail(url=member.avatar_url)
             await ctx.send(embed=embed)

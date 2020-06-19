@@ -153,7 +153,10 @@ class owner(commands.Cog):
         )
         for i in self.bot.guilds:
             print(i)
-            embed.add_field(name=i,value="_ _",inline=False)
+            members = 0
+            for member in i.members:
+                members += 1
+            embed.add_field(name=i,value=f"{members} Members",inline=True)
         await msg.edit(embed=embed)
         await msg.clear_reaction(emoji)
 
