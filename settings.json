@@ -1,0 +1,6 @@
+{
+    "token":"your bot id",
+    "paypalmode":"your mode",
+    "paypalid":"your paypal id",
+    "paypalsecretid":"your paypal serect id"
+}

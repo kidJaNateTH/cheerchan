@@ -11,11 +11,15 @@ from discord.ext import commands
 class paypal(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-
+    with open('settings.json','r') as f:
+        t = json.load(f)
+        mode = str(t['paypalmode'])
+        client_id = str(t['paypalid'])
+        client_secret = str(t['paypalsecretid'])
     paypalrestsdk.configure({
-        "mode": "live", # sandbox or live
-        "client_id": "AUvsxWM9mdHP7Y_ajYOVlQBmzvgngTIahWeYEelgJdNoJfMQWHpUyPWX1NSsaOrc-yiNaxPenxWH6hVo",
-        "client_secret": "EPxYOpm_Nbr7w8MxH9_2IALl7gdzueYlnyoiRQqobU1Q4_b7EXygkY0VimMdYXzNHDqJSkEZtfsnzqRL" })
+        "mode": mode, # sandbox or live
+        "client_id": client_id,
+        "client_secret": client_secret })
 
     @commands.command()
     async def premium(self,ctx,member:discord.Member= None,t:str=None,pay:str=None,payid:str=None):

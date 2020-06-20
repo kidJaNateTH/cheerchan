@@ -5,10 +5,11 @@ from discord.ext.commands import Bot
 from discord.ext.tasks import loop
 import json
 from langdetect import detect
+import os
 
-with open('token.json','r') as f:
-    to = json.load(f)
-    token = to['token']
+with open('settings.json','r') as f:
+    t = json.load(f)
+    token = t['token']
 
 TOKEN = token
 
@@ -123,13 +124,18 @@ async def on_ready():
 async def on_guild_join(guild):
     print(f"Cheer Chan have joined to {guild}")
     with open("badword.json","r",encoding="utf8") as f:
+        print("read badword file")
         bad = json.load(f)
     with open("badword.json","w",encoding="utf8") as f:
+        print("write badword file")
+        bad[str(guild.id)] = {}
         bad[str(guild.id)]['list'] = {}
         json.dump(bad, f, sort_keys=True, indent=4, ensure_ascii=False)
     with open("servers.json","r",encoding="utf8") as f:
+        print("read servers file")
         server = json.load(f)
     with open("servers.json","w",encoding="utf8") as f:
+        print("write servers file")
         server[str(guild.id)] = {}
         server[str(guild.id)]['Server_name'] = str(guild.name)
         server[str(guild.id)]['ticket'] = False
@@ -199,8 +205,8 @@ async def on_message(message):
             if users[str(message.author.id)]['lvl'] == 1:
                 users[str(message.author.id)]['lvl'] = 1
             else:
-                print("ok")
-                #await message.channel.send(f"OwO {message.author.mention} You just advanced to level {users[str(message.author.id)]['lvl']}!")
+                #print("ok")
+                await message.channel.send(f"OwO {message.author.mention} You just advanced to level {users[str(message.author.id)]['lvl']}!")
 
 
         json.dump(users, f, sort_keys=True, indent=4, ensure_ascii=False)

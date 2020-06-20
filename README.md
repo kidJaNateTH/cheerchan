@@ -1,0 +1,1 @@
+Do not use this thing in the wrong way. Stealing money. Spam. If you do, we are not responsible. For educational purposes only - NateTH
