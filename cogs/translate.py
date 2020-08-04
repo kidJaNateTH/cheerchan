@@ -50,6 +50,7 @@ class TRANS(commands.Cog):
             embed.set_author(name="See more",url="https://meta.wikimedia.org/wiki/Template:List_of_language_names_ordered_by_code",icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wikimedia_Community_Logo_optimized.svg/20px-Wikimedia_Community_Logo_optimized.svg.png")
             await ctx.send(embed=embed)
 
+    """DO NOT USE THIS COMMAND I JUST TOLD YOU
     @commands.command()
     async def ctm(self,ctx,p:int):
         if ctx.author.id != 546558917929598978:
@@ -70,6 +71,7 @@ class TRANS(commands.Cog):
             await ctx.send(f"{t}{ending}")
             t = t + 1
             await asyncio.sleep(0.5)
+            """
 
             
 
